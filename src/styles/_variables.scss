@@ -1,0 +1,52 @@
+// Color Palette
+$primary-color: #1976d2;
+$secondary-color: #ff4081;
+$success-color: #4caf50;
+$warning-color: #ff9800;
+$error-color: #f44336;
+$info-color: #2196f3;
+
+// Neutral Colors
+$gray-900: #212529;
+$dark-bg: #121212;
+$light-bg: #fafafa;
+$text-primary: #212121;
+$text-secondary: #757575;
+$border-color: #e0e0e0;
+
+// Spacing
+$base-spacing: 8px;
+$spacing-xs: $base-spacing * 0.5;
+$spacing-sm: $base-spacing * 1;
+$spacing-md: $base-spacing * 2;
+$spacing-lg: $base-spacing * 3;
+$spacing-xl: $base-spacing * 4;
+$spacing-xxl: $base-spacing * 6;
+
+// Font Sizes
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-xxl: 32px;
+
+// Font Family
+$font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-family-mono: 'Courier New', monospace;
+
+// Border Radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$wide: 1440px;
+
+// Shadows
+$box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
