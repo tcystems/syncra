@@ -1,0 +1,93 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.hero {
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  color: white;
+  padding: $spacing-xxl $spacing-md;
+  text-align: center;
+  min-height: 500px;
+  @include flex-center;
+
+  .hero-content {
+    max-width: 800px;
+
+    h1 {
+      font-size: $font-size-xxl;
+      color: white;
+      margin-bottom: $spacing-lg;
+
+      @include mobile-only {
+        font-size: $font-size-xl;
+      }
+    }
+
+    p {
+      font-size: $font-size-lg;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: $spacing-lg;
+    }
+
+    .cta-button {
+      @include button-base;
+      background-color: white;
+      color: $primary-color;
+      padding: $spacing-md $spacing-lg;
+      font-weight: 600;
+      font-size: $font-size-base;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $box-shadow-lg;
+      }
+    }
+  }
+}
+
+.features {
+  padding: $spacing-xxl $spacing-md;
+  background-color: $light-bg;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2 {
+      text-align: center;
+      margin-bottom: $spacing-xl;
+    }
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $spacing-lg;
+
+    @include mobile-only {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .feature-card {
+    background: white;
+    padding: $spacing-lg;
+    border-radius: $border-radius-lg;
+    @include elevation(1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      @include elevation(3);
+      transform: translateY(-4px);
+    }
+
+    h3 {
+      color: $primary-color;
+      margin-bottom: $spacing-md;
+    }
+
+    p {
+      color: $text-secondary;
+      line-height: 1.6;
+    }
+  }
+}

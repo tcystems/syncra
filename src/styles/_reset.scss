@@ -1,0 +1,85 @@
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $text-primary;
+  background-color: $light-bg;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: $spacing-md;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: $font-size-xxl;
+}
+
+h2 {
+  font-size: $font-size-xl;
+}
+
+h3 {
+  font-size: $font-size-lg;
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button {
+  font-family: $font-family-base;
+}
+
+input,
+select,
+textarea {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+
+code {
+  font-family: $font-family-mono;
+  background-color: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: $border-radius-sm;
+}
+
+ul,
+ol {
+  margin-left: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
