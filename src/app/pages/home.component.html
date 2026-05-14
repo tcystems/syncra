@@ -11,7 +11,7 @@
       </div>
       <div class="hero-video-wrapper">
         <button class="btn-play">
-          <span class="play-icon">▶</span>
+          <span class="play-icon">â–¶</span>
         </button>
         <span class="video-text">Watch Our Story</span>
       </div>
@@ -56,7 +56,7 @@
         <h2>An experienced partner you can trust.<br><span class="highlight-text">A service you can count on.</span></h2>
         <p>Syncra provides tailored support solutions for US healthcare clinics and law firms. We build dedicated teams based on your workflow priorities, and service standards, so you get the right support from day one.</p>
         <p>Our approach is simple: select the right people, align them with your processes, and deliver dependable support that helps your business operate more efficiently.</p>
-        <button class="btn btn-primary btn-icon">Discover ↗</button>
+        <button class="btn btn-primary btn-icon">Discover â†—</button>
       </div>
     </div>
   </section>
@@ -66,35 +66,47 @@
       <span class="section-badge">SERVICES</span>
       <h2>Precision Virtual Assistance Across<br><span class="highlight-text">Every Function.</span></h2>
       <div class="services-grid">
+
         <div class="service-card">
-          <div class="service-icon"><img src="assets/images/service-crd/icon-1.png" alt="RCM Icon"></div>
-          <h3>RCM & Copy<br>Services</h3>
-          <p>Support for revenue cycle management and California Workers' Compensation copy services, including transcription, record retrieval, and administrative follow-up.</p>
-          <button class="btn-arrow">→</button>
+          <div class="service-icon"><img src="assets/images/service-crd/icon-1.png" alt="EMC Copy Service Icon"></div>
+          <h3>EMC Copy Service Billing &amp; Revenue Management</h3>
+          <p>We provide comprehensive EMC copy service billing and revenue management solutions purpose-built for California Workers' Compensation practices. Our specialists manage the entire billing lifecycle with a focus on accuracy, compliance, operational efficiency, and revenue recovery.</p>
+          <button class="btn-arrow">&rarr;</button>
         </div>
+
         <div class="service-card">
-          <div class="service-icon"><img src="assets/images/service-crd/icon-2.png" alt="Legal Icon"></div>
-          <h3>Legal Process<br>Outsourcing</h3>
-          <p>Back-office support for US law firms and Workers' Compensation practices.</p>
-          <button class="btn-arrow">→</button>
+          <div class="service-icon"><img src="assets/images/service-crd/icon-2.png" alt="Healthcare RCM Icon"></div>
+          <h3>Healthcare Revenue Cycle Management (RCM)</h3>
+          <p>Our end-to-end healthcare revenue cycle management services are designed to help medical providers maximize reimbursements, reduce claim denials, and improve operational efficiency across the entire patient billing journey.</p>
+          <button class="btn-arrow">&rarr;</button>
         </div>
+
         <div class="service-card">
-          <div class="service-icon"><img src="assets/images/service-crd/icon-3.png" alt="Admin Icon"></div>
-          <h3>Administrative</h3>
-          <p>Reliable operations support to help your team stay focused on higher-value work.</p>
-          <button class="btn-arrow">→</button>
+          <div class="service-icon"><img src="assets/images/service-crd/icon-3.png" alt="Technology Icon"></div>
+          <h3>Technology &amp; Software Solutions</h3>
+          <p>In addition to operational support services, we provide technology and software solutions designed to streamline workflows, improve visibility, and support scalable business operations.</p>
+          <button class="btn-arrow">&rarr;</button>
         </div>
+
         <div class="service-card">
-          <div class="service-icon"><img src="assets/images/service-crd/icon-4.png" alt="Finance Icon"></div>
-          <h3>Finance</h3>
-          <p>Support from ACCA- and CMA-qualified professionals for accounting and finance operations.</p>
-          <button class="btn-arrow">→</button>
+          <div class="service-icon"><img src="assets/images/service-crd/icon-4.png" alt="Admin Support Icon"></div>
+          <h3>Administrative Support</h3>
+          <p>Our Virtual Administrative Assistants provide reliable day-to-day operational support that keeps businesses organised, efficient, and running without disruption. From scheduling and coordination to document management and customer communication, our specialists become a seamless extension of your internal team.</p>
+          <button class="btn-arrow">&rarr;</button>
         </div>
+
         <div class="service-card">
-          <div class="service-icon"><img src="assets/images/service-crd/icon-5.png" alt="IT Icon"></div>
-          <h3>IT<br>Services</h3>
-          <p>Software development and digital marketing support from experienced technical professionals.</p>
-          <button class="btn-arrow">→</button>
+          <div class="service-icon"><img src="assets/images/service-crd/icon-5.png" alt="Finance Icon"></div>
+          <h3>Finance Solutions</h3>
+          <p>Our Virtual Finance specialists provide accurate, detail-oriented financial support that helps businesses maintain clarity, compliance, and confident decision-making across their operations.</p>
+          <button class="btn-arrow">&rarr;</button>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><img src="assets/images/service-crd/icon-6.png" alt="Digital Marketing Icon"></div>
+          <h3>Digital Marketing Solutions</h3>
+          <p>Our Virtual Digital Marketing specialists help businesses build a stronger online presence, generate qualified leads, and create meaningful customer engagement through strategic, performance-driven marketing solutions.</p>
+          <button class="btn-arrow">&rarr;</button>
         </div>
       </div>
     </div>
@@ -106,10 +118,10 @@
         <span class="section-badge">FAQ</span>
         <h2>Your <span class="highlight-text">Questions</span> Matter!</h2>
         <p>Find quick answers to common questions about our services, processes, and solutions.</p>
+        
         <div class="faq-list">
           <div class="faq-item" 
-               *ngFor="let faq of faqs; let i = index; let last = last" 
-               [class.no-border]="last" 
+               *ngFor="let faq of faqs; let i = index" 
                [class.active]="activeFaq === i"
                (click)="toggleFaq(i)">
             <div class="faq-question-header">
@@ -117,7 +129,7 @@
                 <span class="q-icon">Q</span>
                 <span class="q-text">{{ faq.question }}</span>
               </div>
-              <span class="arrow-down" [class.rotated]="activeFaq === i">▼</span>
+              <span class="arrow-down" [class.rotated]="activeFaq === i">&#9660;</span>
             </div>
             <div class="faq-answer" *ngIf="activeFaq === i">
               <p>{{ faq.answer }}</p>
@@ -125,6 +137,7 @@
           </div>
         </div>
       </div>
+      
       <div class="faq-image-wrapper">
         <img src="assets/images/faq/faq.png" alt="FAQ" class="faq-image">
       </div>
@@ -138,6 +151,7 @@
         <h2>Let's Build Your<br>Growth Journey<br>Together.</h2>
         <p>We're ready to help you build a more efficient and dependable team.</p>
       </div>
+      
       <div class="contact-form">
         <div class="form-group"><input type="text" placeholder="Your Name *"></div>
         <div class="form-group"><input type="email" placeholder="Email Address *"></div>
