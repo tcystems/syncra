@@ -9,8 +9,15 @@
       <ul>
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/about">About</a></li>
-        <li class="dropdown">
-          <a routerLink="/services">Services <span class="arrow">↓</span></a>
+        <li class="dropdown" [class.open]="servicesDropdownOpen" (click)="$event.stopPropagation()">
+          <a href="#" (click)="toggleServicesDropdown($event)">Services <span class="arrow" [class.rotated]="servicesDropdownOpen">▼</span></a>
+          <div class="dropdown-menu" *ngIf="servicesDropdownOpen">
+            <a routerLink="/services/rcm-copy" (click)="servicesDropdownOpen = false">RCM &amp; Copy Services</a>
+            <a routerLink="/services/legal" (click)="servicesDropdownOpen = false">Legal Process Outsourcing</a>
+            <a routerLink="/services/administrative" (click)="servicesDropdownOpen = false">Administrative</a>
+            <a routerLink="/services/finance" (click)="servicesDropdownOpen = false">Finance</a>
+            <a routerLink="/services/it" (click)="servicesDropdownOpen = false">IT Services</a>
+          </div>
         </li>
         <li><a routerLink="/our-work">Our Work</a></li>
         <li><a routerLink="/blogs">Blogs</a></li>

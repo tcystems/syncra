@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -11,8 +11,20 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent {
   mobileMenuOpen = false;
+  servicesDropdownOpen = false;
 
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  toggleServicesDropdown(event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.servicesDropdownOpen = !this.servicesDropdownOpen;
+  }
+
+  @HostListener('document:click')
+  closeDropdown() {
+    this.servicesDropdownOpen = false;
   }
 }
