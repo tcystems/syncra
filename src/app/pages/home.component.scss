@@ -254,6 +254,13 @@
     .btn-icon {
       margin-top: 16px;
       background-color: #81007F;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: #9f009d;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(129, 0, 127, 0.4);
+      }
     }
   }
 }

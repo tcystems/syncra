@@ -74,6 +74,7 @@
           margin-bottom: 0;
         }
       }
+
     }
   }
 
@@ -123,19 +124,30 @@
       font-size: 0.85rem;
       margin: 0;
     }
-    
-    .social-icons {
+    .social-links {
       display: flex;
-      gap: 20px;
+      gap: 24px;
+      align-items: center;
       
       .social-icon {
-        color: white;
-        text-decoration: none;
-        font-size: 1.2rem;
-        transition: color 0.3s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+        
+        img {
+          height: 18px;
+          width: auto;
+          object-fit: contain;
+          transition: filter 0.3s ease;
+        }
         
         &:hover {
-          color: #81007F;
+          transform: translateY(-2px);
+          img {
+            /* CSS filter to turn white into #81007F */
+            filter: invert(15%) sepia(87%) saturate(5729%) hue-rotate(293deg) brightness(80%) contrast(115%);
+          }
         }
       }
     }
