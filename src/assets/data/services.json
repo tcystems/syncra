@@ -1,0 +1,241 @@
+[
+  {
+    "slug": "emc-billing",
+    "title": "EMC Copy Service Billing & Revenue Management",
+    "description": "We provide comprehensive EMC copy service billing and revenue management solutions purpose-built for California Workers' Compensation practices. Our specialists manage the entire billing lifecycle with a focus on accuracy, compliance, operational efficiency, and revenue recovery.",
+    "listHeading": "Services Include:",
+    "groups": [
+      {
+        "title": "Records & Subpoena Management",
+        "items": [
+          "Attorney Request Processing",
+          "Subpoena Generation & Service",
+          "Status Tracking & Follow-Up",
+          "Record Verification & Accuracy"
+        ]
+      },
+      {
+        "title": "Billing & Financial Administration",
+        "items": [
+          "Invoice Creation",
+          "Payer Verification",
+          "Charge Entry & Electronic Billing",
+          "Penalty Billing Services"
+        ]
+      },
+      {
+        "title": "Revenue Recovery & Collections",
+        "items": [
+          "EOR Responses",
+          "Collections & Account Follow-Up"
+        ]
+      },
+      {
+        "title": "Reporting & Reconciliation",
+        "items": [
+          "Payment Posting",
+          "Revenue Monitoring & Reporting",
+          "Business Intelligence & Financial Reconciliation"
+        ]
+      }
+    ],
+    "footerText": "By combining specialised industry knowledge with structured operational workflows, we help organizations reduce administrative burden, accelerate collections, improve cash flow, and maintain accurate financial operations throughout the revenue cycle.",
+    "whyTitle": "Why Syncra for EMC Copy Services & Revenue Management?",
+    "whyCards": [
+      {
+        "title": "End-to-End Revenue Cycle Ownership",
+        "description": "From attorney request intake to final payment posting, our specialists manage the complete billing and collection lifecycle — eliminating operational gaps, reducing denials, and maximizing revenue recovery."
+      },
+      {
+        "title": "California Workers' Compensation Expertise",
+        "description": "Our team is trained specifically in California Workers' Compensation protocols, ensuring every subpoena, invoice, EOR response, and billing process aligns with the state's complex regulatory requirements."
+      },
+      {
+        "title": "Accuracy That Protects Revenue",
+        "description": "Through rigorous verification processes, payer validation, and penalty billing management, we ensure nothing slips through the cracks — helping your organization remain compliant, organized, and financially efficient."
+      }
+    ]
+  },
+  {
+    "slug": "healthcare-rcm",
+    "title": "Healthcare Revenue Cycle Management (RCM)",
+    "description": "Our end-to-end healthcare revenue cycle management services are designed to help medical providers maximize reimbursements, reduce claim denials, and improve operational efficiency across the entire patient billing journey.",
+    "listHeading": "RCM Services Include:",
+    "groups": [
+      {
+        "title": "",
+        "items": [
+          "Insurance Verification & Verification of Benefits (VoB)",
+          "Patient Demographics Review",
+          "Charge Entry & Claim Preparation",
+          "Medical Claims Submission",
+          "Denial Management & Appeals",
+          "Accounts Receivable (AR) Follow-Up",
+          "Insurance & Patient Collections",
+          "Payment Posting & Reconciliation",
+          "Financial Reporting & Revenue Analytics"
+        ]
+      }
+    ],
+    "footerText": "We operate as a seamless extension of your organization, delivering detail-driven revenue cycle solutions focused on compliance, efficiency, and long-term financial performance.",
+    "whyTitle": "Why Syncra for Healthcare RCM?",
+    "whyCards": [
+      {
+        "title": "Revenue-Focused Operations",
+        "description": "Our specialists oversee every stage of the revenue cycle with precision — helping healthcare providers improve collections, reduce days, and optimize reimbursement outcomes."
+      },
+      {
+        "title": "Compliance & Accuracy",
+        "description": "We maintain strict quality control processes across claims submission, documentation review, and denial management to minimize errors and support clean claim performance."
+      },
+      {
+        "title": "Scalable Operational Support",
+        "description": "Whether supporting independent practices or growing healthcare organizations, our solutions scale alongside your business needs — providing reliable support without the overhead of expanding internal teams."
+      }
+    ]
+  },
+  {
+    "slug": "administrative-support",
+    "title": "Administrative Support",
+    "description": "Our Virtual Administrative Assistants provide reliable day-to-day operational support that keeps businesses organised, efficient, and running without disruption. From scheduling and coordination to document management and customer communication, our specialists become a seamless extension of your internal team.",
+    "listHeading": "Services Include:",
+    "groups": [
+      {
+        "title": "",
+        "items": [
+          "Calendar Management",
+          "Virtual Meeting Coordination",
+          "File & Document Management",
+          "Data Entry & Database Maintenance",
+          "Document Preparation",
+          "Customer Support",
+          "Administrative Workflow Support"
+        ]
+      }
+    ],
+    "footerText": "By handling time-consuming administrative responsibilities with precision and consistency, we help businesses improve productivity, maintain organisation, and free internal teams to focus on strategic priorities.",
+    "whyTitle": "Why Syncra for Administrative Support?",
+    "whyCards": [
+      {
+        "title": "Operational Efficiency",
+        "description": "Delegating administrative tasks to Syncra allows your core team to focus entirely on business growth, client relationships, and high-value responsibilities — while we manage the operational details behind the scenes."
+      },
+      {
+        "title": "Consistent, Long-Term Support",
+        "description": "Our low-attrition roles ensure continuity and reliability, allowing your dedicated administrative assistant to develop a strong understanding of your workflows, preferences, and business operations over time."
+      },
+      {
+        "title": "Cost-Effective Staffing Solutions",
+        "description": "Access highly skilled, full-time administrative professionals at a fraction of the cost of local hiring — without compromising on responsiveness, professionalism, or quality of work."
+      }
+    ]
+  },
+  {
+    "slug": "finance-solutions",
+    "title": "Finance Solutions",
+    "description": "Our Virtual Finance specialists provide accurate, detail-oriented financial support that helps businesses maintain clarity, compliance, and confident decision-making across their operations.",
+    "listHeading": "Services Include:",
+    "groups": [
+      {
+        "title": "",
+        "items": [
+          "Accounting & Bookkeeping",
+          "Financial Reporting",
+          "Investment Research",
+          "Financial Reconciliation",
+          "Expense Tracking & Management",
+          "Revenue & Performance Analysis"
+        ]
+      }
+    ],
+    "footerText": "Our finance professionals support businesses with structured financial management, reliable reporting, and data-driven insights that contribute to stronger operational and financial performance.",
+    "whyTitle": "Why Syncra for Finance Solutions?",
+    "whyCards": [
+      {
+        "title": "World-Class Financial Expertise",
+        "description": "Sri Lanka is home to one of the largest pools of ACCA and CIMA-qualified finance professionals outside the UK, giving your business access to globally recognized expertise at significantly lower operational costs."
+      },
+      {
+        "title": "Informed Business Decisions",
+        "description": "Through accurate reporting, detailed analysis, and investment research, our specialists provide the financial clarity leadership teams need to make confident, strategic decisions."
+      },
+      {
+        "title": "Cost-Effective Financial Support",
+        "description": "Gain access to experienced finance professionals without the overhead of a full-time local finance department, delivering high-quality support while maintaining operational efficiency."
+      }
+    ]
+  },
+  {
+    "slug": "tech-software",
+    "title": "Technology & Software Solutions",
+    "description": "In addition to operational support services, we provide technology and software solutions designed to streamline workflows, improve visibility, and support scalable business operations.",
+    "listHeading": "Software Capabilities:",
+    "groups": [
+      {
+        "title": "",
+        "items": [
+          "Integrated Billing & Collection Management",
+          "Real-Time Operational Dashboards",
+          "Payment Tracking & Financial Reporting",
+          "Workflow Automation",
+          "Secure Multi-User Access",
+          "Data Management & Reporting Tools",
+          "Customizable Features Based on Business Requirements"
+        ]
+      }
+    ],
+    "footerText": "Our technology solutions are built to improve operational control, simplify complex workflows, and provide organizations with real-time insights that support smarter decision-making.",
+    "whyTitle": "Why Syncra for Technology Solutions?",
+    "whyCards": [
+      {
+        "title": "Operationally Driven Technology",
+        "description": "Our software solutions are developed with operational efficiency in mind — helping businesses automate repetitive tasks, reduce manual errors, and streamline day-to-day workflows."
+      },
+      {
+        "title": "Real-Time Visibility & Reporting",
+        "description": "Through integrated dashboards and reporting systems, businesses gain instant access to operational performance, payment tracking, and financial insights needed for informed decision-making."
+      },
+      {
+        "title": "Flexible & Scalable Systems",
+        "description": "Our solutions are designed to adapt to evolving business requirements, providing customizable functionality and secure infrastructure that supports long-term growth."
+      }
+    ]
+  },
+  {
+    "slug": "digital-marketing",
+    "title": "Digital Marketing Solutions",
+    "description": "Our Virtual Digital Marketing specialists help businesses build a stronger online presence, generate qualified leads, and create meaningful customer engagement through strategic, performance-driven marketing solutions.",
+    "listHeading": "Services Include:",
+    "groups": [
+      {
+        "title": "",
+        "items": [
+          "Social Media Management",
+          "Content Creation & Copywriting",
+          "Paid Advertising Campaigns",
+          "Search Engine Optimization (SEO)",
+          "Email Marketing",
+          "Brand Strategy & Positioning",
+          "Marketing Analytics & Reporting",
+          "Website Content Management"
+        ]
+      }
+    ],
+    "footerText": "By combining creativity with data-driven strategy, we help businesses strengthen brand visibility, improve audience engagement, and drive sustainable digital growth across multiple platforms.",
+    "whyTitle": "Why Syncra for Digital Marketing?",
+    "whyCards": [
+      {
+        "title": "Strategy-Driven Growth",
+        "description": "Our marketing specialists develop tailored digital strategies aligned with your business goals — ensuring every campaign, piece of content, and marketing effort contributes to measurable growth."
+      },
+      {
+        "title": "Creative & Consistent Brand Presence",
+        "description": "From social media management to content creation, we help businesses maintain a professional, engaging, and consistent presence across all digital channels."
+      },
+      {
+        "title": "Performance Without the Overhead",
+        "description": "Access a full spectrum of digital marketing expertise at a fraction of the cost of building an in-house team — without compromising on quality, creativity, or execution."
+      }
+    ]
+  }
+]
