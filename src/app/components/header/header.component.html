@@ -12,11 +12,12 @@
         <li class="dropdown" [class.open]="servicesDropdownOpen" (click)="$event.stopPropagation()">
           <a href="#" (click)="toggleServicesDropdown($event)">Services <span class="arrow" [class.rotated]="servicesDropdownOpen">▼</span></a>
           <div class="dropdown-menu" *ngIf="servicesDropdownOpen">
-            <a routerLink="/services/rcm-copy" (click)="servicesDropdownOpen = false">RCM &amp; Copy Services</a>
-            <a routerLink="/services/legal" (click)="servicesDropdownOpen = false">Legal Process Outsourcing</a>
-            <a routerLink="/services/administrative" (click)="servicesDropdownOpen = false">Administrative</a>
-            <a routerLink="/services/finance" (click)="servicesDropdownOpen = false">Finance</a>
-            <a routerLink="/services/it" (click)="servicesDropdownOpen = false">IT Services</a>
+            <a routerLink="/services/emc-billing" (click)="servicesDropdownOpen = false">EMC Billing &amp; Revenue</a>
+            <a routerLink="/services/healthcare-rcm" (click)="servicesDropdownOpen = false">Healthcare RCM</a>
+            <a routerLink="/services/administrative-support" (click)="servicesDropdownOpen = false">Administrative Support</a>
+            <a routerLink="/services/finance-solutions" (click)="servicesDropdownOpen = false">Finance Solutions</a>
+            <a routerLink="/services/tech-software" (click)="servicesDropdownOpen = false">Tech &amp; Software</a>
+            <a routerLink="/services/digital-marketing" (click)="servicesDropdownOpen = false">Digital Marketing Solutions</a>
           </div>
         </li>
         <li><a routerLink="/our-work">Our Work</a></li>
