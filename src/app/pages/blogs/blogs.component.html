@@ -1,0 +1,48 @@
+<div class="blogs-page">
+  <div class="container">
+    <div class="blogs-header">
+      <h1><span class="highlight-text">Writings</span> from Our Team</h1>
+      <p>The latest industry news, interviews, technologies, and resources.</p>
+    </div>
+
+    <!-- Featured Blog Placeholder (like the large image in the design) -->
+    <div class="featured-blog">
+      <img src="assets/images/blog/blog-featured.jpg" alt="Featured Blog" onerror="this.src='assets/images/blogs-page/blogpg-hero.png'">
+    </div>
+
+    <!-- Blog Cards Grid -->
+    <div class="blogs-grid">
+      <div class="blog-card" *ngFor="let blog of paginatedBlogs" (click)="goToBlog(blog.slug)">
+        <div class="card-image">
+          <img [src]="blog.imageUrl" [alt]="blog.title" onerror="this.src='assets/images/blogs-page/blogpg-hero.png'">
+        </div>
+        <div class="card-meta">
+          <span class="category">{{blog.category | uppercase}}</span>
+          <span class="dot">•</span>
+          <span class="date">{{blog.date | uppercase}}</span>
+        </div>
+        <h3>{{blog.title}}</h3>
+        <button class="read-more">
+          Read <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Pagination -->
+    <div class="pagination" *ngIf="totalPages > 1">
+      <button class="prev" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg> Previous
+      </button>
+      <div class="page-numbers">
+        <span *ngFor="let page of getPages()" 
+              [class.active]="currentPage === page"
+              (click)="goToPage(page)">
+          {{ page }}
+        </span>
+      </div>
+      <button class="next" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">
+        Next <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+      </button>
+    </div>
+  </div>
+</div>

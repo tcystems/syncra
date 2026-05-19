@@ -1,0 +1,104 @@
+<div class="service-detail-page" *ngIf="service">
+  <div class="container">
+    
+    <!-- Top Hero Info -->
+    <div class="service-hero">
+      <h1>{{ service.title }}</h1>
+      <p class="description">{{ service.description }}</p>
+    </div>
+
+    <!-- Services include section -->
+    <div class="services-list-section">
+      <h2>{{ service.listHeading }}</h2>
+      
+      <!-- Grouped or flat cards grid -->
+      <div class="services-grid" [class.grouped]="service.groups.length > 1">
+        <!-- Grouped Layout -->
+        <ng-container *ngIf="service.groups.length > 1">
+          <div class="service-group-box" *ngFor="let group of service.groups">
+            <h3>{{ group.title }}</h3>
+            <ul>
+              <li *ngFor="let item of group.items">
+                <span class="check-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#81007F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </span>
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+
+        <!-- Flat Layout -->
+        <ng-container *ngIf="service.groups.length === 1">
+          <div class="flat-list-grid">
+            <div class="flat-list-item" *ngFor="let item of service.groups[0].items">
+              <span class="check-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#81007F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </span>
+              {{ item }}
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Footer Text -->
+    <p class="footer-paragraph" *ngIf="service.footerText">{{ service.footerText }}</p>
+
+    <!-- Why Syncra section -->
+    <div class="why-syncra-section">
+      <h2>{{ service.whyTitle }}</h2>
+      <div class="why-cards">
+        <div class="why-card" *ngFor="let card of service.whyCards">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              <path d="M2 12h20"></path>
+            </svg>
+          </div>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.description }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Contact Section (reused) -->
+  <section class="contact-section">
+    <div class="container contact-container">
+      <div class="contact-content">
+        <span class="section-badge">GET IN TOUCH</span>
+        <h2>Let's Build Your<br>Growth Journey<br>Together.</h2>
+        <p>We're ready to help you build a more efficient and dependable team.</p>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-group"><input type="text" placeholder="Your Name *"></div>
+        <div class="form-group"><input type="email" placeholder="Email Address *"></div>
+        <div class="form-group"><input type="tel" placeholder="Phone Number (Optional)"></div>
+        <div class="form-group"><input type="text" placeholder="Message *"></div>
+        <button class="btn-submit">Leave Us a Message</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="service-detail-page loading" *ngIf="!service && !error">
+  <div class="container text-center">
+    <p>Loading service details...</p>
+  </div>
+</div>
+
+<div class="service-detail-page error" *ngIf="error">
+  <div class="container text-center">
+    <h2>Service not found</h2>
+    <p>We couldn't find the service you were looking for.</p>
+    <button routerLink="/" class="back-btn">← Back to Home</button>
+  </div>
+</div>

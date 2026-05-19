@@ -1,0 +1,30 @@
+<div class="blog-detail-page" *ngIf="blog">
+  <div class="container">
+    <div class="blog-header">
+      <h1>{{blog.title}}</h1>
+      <p class="meta-info">{{blog.date}} • {{blog.author}}</p>
+    </div>
+
+    <div class="featured-image">
+      <img [src]="blog.imageUrl" [alt]="blog.title" onerror="this.src='assets/images/about-page/about-newhero.png'">
+    </div>
+
+    <div class="blog-content" [innerHTML]="blog.content">
+      <!-- Content from Google Docs (or JSON) will be rendered here -->
+    </div>
+  </div>
+</div>
+
+<div class="blog-detail-page loading" *ngIf="!blog && !error">
+  <div class="container">
+    <p>Loading blog content...</p>
+  </div>
+</div>
+
+<div class="blog-detail-page error" *ngIf="error">
+  <div class="container">
+    <h2>Blog not found</h2>
+    <p>We couldn't find the blog post you were looking for.</p>
+    <button routerLink="/blogs" class="back-btn">← Back to Blogs</button>
+  </div>
+</div>

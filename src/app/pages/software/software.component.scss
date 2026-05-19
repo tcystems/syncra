@@ -1,0 +1,189 @@
+.software-page {
+  background-color: #0b0b0b;
+  color: white;
+  min-height: 100vh;
+  padding: 140px 0 100px; /* Increased top padding to accommodate the header */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.software-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.software-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 40px;
+  border: 1px solid rgba(129, 0, 127, 0.4);
+  border-radius: 16px;
+  background-color: transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    border-color: rgba(129, 0, 127, 0.8);
+    box-shadow: 0 4px 30px rgba(129, 0, 127, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 24px;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #999;
+    }
+  }
+
+  .title-large {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    h3 {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      
+      .dot {
+        color: #81007F;
+      }
+    }
+  }
+}
+
+// In the design, the large title is on the right, and the content is on the left.
+// Let's ensure the large title stays on the right visually in grid
+@media (min-width: 768px) {
+  .software-card {
+    .content {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+    .title-large {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+  }
+}
+
+/* ─── Contact Section ─── */
+.contact-section {
+  padding: 80px 0;
+  background-color: #81007F;
+  color: white;
+  margin-top: 80px;
+
+  .contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    flex-wrap: wrap;
+  }
+
+  .contact-content {
+    flex: 1;
+    min-width: 280px;
+    max-width: 460px;
+
+    .section-badge {
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    p {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  }
+
+  .contact-form {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .form-group {
+      margin-bottom: 16px;
+
+      input {
+        width: 100%;
+        padding: 14px 0;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(255,255,255,0.35);
+        color: white;
+        font-size: 0.95rem;
+        box-sizing: border-box;
+
+        &::placeholder {
+          color: rgba(255,255,255,0.55);
+        }
+
+        &:focus {
+          outline: none;
+          border-bottom-color: white;
+        }
+      }
+    }
+
+    .btn-submit {
+      background-color: #ffffff;
+      color: #81007F;
+      border: none;
+      border-radius: 30px;
+      padding: 16px;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 12px;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}

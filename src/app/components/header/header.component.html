@@ -1,26 +1,34 @@
 <header class="header">
   <div class="container">
     <div class="logo">
-      <a routerLink="/">Syncra</a>
+      <a routerLink="/">
+        <img src="assets/images/logos/sycra-logo.png" alt="Syncra Logo">
+      </a>
     </div>
     <nav class="nav">
       <ul>
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/about">About</a></li>
-        <li><a routerLink="/services">Services</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
+        <li class="dropdown" [class.open]="servicesDropdownOpen" (click)="$event.stopPropagation()">
+          <a href="#" (click)="toggleServicesDropdown($event)">Services <span class="arrow" [class.rotated]="servicesDropdownOpen">▼</span></a>
+          <div class="dropdown-menu" *ngIf="servicesDropdownOpen">
+            <a routerLink="/services/emc-billing" (click)="servicesDropdownOpen = false">EMC Billing &amp; Revenue</a>
+            <a routerLink="/services/healthcare-rcm" (click)="servicesDropdownOpen = false">Healthcare RCM</a>
+            <a routerLink="/services/administrative-support" (click)="servicesDropdownOpen = false">Administrative Support</a>
+            <a routerLink="/services/finance-solutions" (click)="servicesDropdownOpen = false">Finance Solutions</a>
+            <a routerLink="/services/tech-software" (click)="servicesDropdownOpen = false">Tech &amp; Software</a>
+            <a routerLink="/services/digital-marketing" (click)="servicesDropdownOpen = false">Digital Marketing Solutions</a>
+          </div>
+        </li>
+        <li><a routerLink="/our-work">Our Work</a></li>
+        <li><a routerLink="/blogs">Blogs</a></li>
+        <li><a routerLink="/software">Software</a></li>
+        <li><a routerLink="/clients">Clients</a></li>
       </ul>
     </nav>
-    <button class="mobile-menu-btn" (click)="toggleMobileMenu()">
-      ☰
-    </button>
+    <div class="header-actions">
+      <button class="btn-contact">Contact us</button>
+      <button class="mobile-menu-btn" (click)="toggleMobileMenu()">☰</button>
+    </div>
   </div>
-  <nav class="mobile-nav" *ngIf="mobileMenuOpen">
-    <ul>
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/about">About</a></li>
-      <li><a routerLink="/services">Services</a></li>
-      <li><a routerLink="/contact">Contact</a></li>
-    </ul>
-  </nav>
 </header>
