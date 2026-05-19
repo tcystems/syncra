@@ -1,0 +1,202 @@
+.contact-section {
+  padding: 100px 0;
+  background-image: url('/assets/images/contact-us/contact-banner.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0b020b; // deep dark purple background fallback
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(11, 2, 11, 0.4); // Subtle dark purple overlay to match the mesh
+    z-index: 1;
+  }
+
+  .contact-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+    
+    @media (max-width: 992px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+    }
+  }
+
+  .contact-content {
+    flex: 1.1;
+    min-width: 300px;
+    max-width: 550px;
+
+    .section-badge {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 32px;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 440px;
+      margin: 0;
+    }
+  }
+
+  .contact-form-card {
+    flex: 0.9;
+    width: 100%;
+    min-width: 320px;
+    max-width: 480px;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+
+    @media (max-width: 576px) {
+      padding: 32px 24px;
+    }
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .form-group {
+      position: relative;
+      width: 100%;
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px 0;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #dcdcdc;
+        color: #111111;
+        font-size: 0.95rem;
+        font-family: inherit;
+        border-radius: 0;
+        box-sizing: border-box;
+        transition: border-bottom-color 0.3s ease;
+
+        &::placeholder {
+          color: #999999;
+          opacity: 1; /* Firefox */
+        }
+
+        &:focus {
+          outline: none;
+          border-bottom-color: #81007F;
+        }
+      }
+
+      textarea {
+        resize: none;
+        min-height: 80px;
+      }
+
+      select {
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        padding-right: 24px;
+        color: #111111;
+
+        &:invalid {
+          color: #999999;
+        }
+
+        // styling the dropdown options
+        option {
+          color: #111111;
+          background: #ffffff;
+          padding: 8px;
+
+          &[disabled] {
+            color: #999999;
+          }
+        }
+      }
+
+      &.select-group {
+        .select-arrow {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          pointer-events: none;
+          color: #999999;
+          display: flex;
+          align-items: center;
+          transition: color 0.3s ease;
+        }
+
+        select:focus ~ .select-arrow {
+          color: #81007F;
+        }
+      }
+    }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      background-color: #81007F;
+      color: #ffffff;
+      border: none;
+      border-radius: 30px;
+      padding: 16px 24px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(129, 0, 127, 0.25);
+      margin-top: 8px;
+
+      &:hover {
+        background-color: darken(#81007F, 8%);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(129, 0, 127, 0.4);
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+  }
+}
