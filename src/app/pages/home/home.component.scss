@@ -137,39 +137,39 @@
 
 /* Partners Section */
 .partners-section {
-  padding: 40px 0;
-  background-color: #0b0b0b;
-  border-top: 1px solid #222;
+  padding: 60px 0;
+  background-color: #0d0d0d;
   overflow: hidden;
   
   .partners-tagline {
     text-align: center;
-    color: #aaa;
-    font-size: 0.9rem;
-    margin-bottom: 24px;
+    color: #888888;
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    padding: 0 24px;
   }
 
   .partners-logos-wrapper {
     position: relative;
     width: 100%;
-    margin-top: 30px;
     overflow: hidden;
     white-space: nowrap;
   }
   
   .partners-logos.track {
     display: inline-block;
-    animation: scrollLogos 20s linear infinite;
+    animation: scrollLogos 25s linear infinite;
     
     .partner-logo {
       display: inline-block;
-      height: 35px;
-      margin: 0 40px; // Spacing between logos
-      opacity: 1;
-      transition: opacity 0.3s;
+      height: 45px;
+      margin: 0 24px; // Spacious spacing between logos
       vertical-align: middle;
+      transition: opacity 0.3s;
       
-      &:hover { opacity: 0.5; }
+      &:hover { opacity: 0.8; }
     }
   }
 }
