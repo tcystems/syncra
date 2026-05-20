@@ -1,10 +1,10 @@
 @import '../../../styles/variables';
 
 .clients-page {
-  background-color: #0b0b0b;
+  background-color: #0a0a0a;
   color: white;
   min-height: 100vh;
-  padding: 140px 0 0; /* Space for the header */
+  padding: 140px 0 80px;
 }
 
 .container {
@@ -16,73 +16,113 @@
 
 .clients-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 80px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
   }
 }
 
 .client-card {
-  border: 1px solid rgba(129, 0, 127, 0.4);
-  border-radius: 16px;
-  padding: 40px;
-  background-color: transparent;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #ffffff;
+  border-radius: 28px;
+  /* Purple/violet glowing border — matches mockup exactly */
+  border: 1.5px solid #9c27b0;
+  box-shadow:
+    0 0 0 1px rgba(156, 39, 176, 0.25),
+    0 8px 32px rgba(0, 0, 0, 0.22),
+    0 0 24px rgba(129, 0, 127, 0.12);
+  color: #333333;
+  /* Top/side padding normal; bottom padding large to make room for wave */
+  padding: 36px 28px 160px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* All cards same height — tall enough for longest list */
+  height: 420px;
   box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    border-color: rgba(129, 0, 127, 0.8);
-    box-shadow: 0 4px 30px rgba(129, 0, 127, 0.15);
+    transform: translateY(-5px);
+    box-shadow:
+      0 0 0 1.5px rgba(156, 39, 176, 0.6),
+      0 12px 40px rgba(0, 0, 0, 0.28),
+      0 0 40px rgba(129, 0, 127, 0.22);
   }
 
+  @media (max-width: 640px) {
+    height: auto;
+    min-height: 420px;
+    padding-bottom: 160px;
+  }
+
+  /* ── Wave graphic — semi-transparent so text overlays cleanly ── */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-image: url('/assets/images/clients/client-crd.png');
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    /* Key: make wave translucent like the mockup */
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ── Title ── */
   h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 24px;
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 22px;
+    text-align: center;
     line-height: 1.2;
-    background: linear-gradient(135deg, #fff 0%, #aaa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.3px;
+    flex-shrink: 0;
   }
 
-  .subtitle {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #81007F;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(129, 0, 127, 0.2);
-    padding-bottom: 8px;
-  }
-
+  /* ── Checklist — sits above the wave via z-index ── */
   .checklist {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 11px;
+    position: relative;
+    z-index: 2;
 
     li {
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.95rem;
-      color: #ccc;
-      line-height: 1.4;
+      align-items: center;  /* vertically centre icon with text */
+      gap: 10px;
+      font-size: 0.87rem;
+      font-weight: 500;
+      color: #3a3a3a;
+      line-height: 1.35;
+      white-space: nowrap;   /* keep each item on one line */
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       .check-icon {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 2px;
         flex-shrink: 0;
       }
     }
   }
 }
-
-

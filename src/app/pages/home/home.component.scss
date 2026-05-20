@@ -168,6 +168,7 @@
       margin: 0 24px; // Spacious spacing between logos
       vertical-align: middle;
       transition: opacity 0.3s;
+      cursor: pointer;
       
       &:hover { opacity: 0.8; }
     }
