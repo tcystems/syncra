@@ -67,6 +67,23 @@
       </div>
     </div>
 
+    <!-- Optional Products Showcase (e.g. Technology & Software Solutions) -->
+    <div class="products-showcase" *ngIf="service.products && service.products.length > 0">
+      <div class="product-card" *ngFor="let product of service.products">
+        <div class="product-content">
+          <div class="product-logo-wrapper">
+            <img [src]="product.logo" [alt]="product.name" class="product-logo-img">
+          </div>
+          <h3>{{ product.name }}</h3>
+          <p class="product-subtitle">{{ product.subtitle }}</p>
+          <p class="product-description">{{ product.description }}</p>
+        </div>
+        <div class="product-tagline">
+          <h4>{{ product.tagline }}</h4>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <app-contact></app-contact>

@@ -40,7 +40,7 @@
       }
     ],
     "footerText": "By combining specialised industry knowledge with structured operational workflows, we help organizations reduce administrative burden, accelerate collections, improve cash flow, and maintain accurate financial operations throughout the revenue cycle.",
-    "whyTitle": "Why Syncra for EMC Copy Services & Revenue Management?",
+    "whyTitle": "Why Syncra for Copy Services & Revenue Management?",
     "whyCards": [
       {
         "title": "End-to-End Revenue Cycle Ownership",
@@ -199,6 +199,26 @@
         "title": "Flexible & Scalable Systems",
         "description": "Our solutions are designed to adapt to evolving business requirements, providing customizable functionality and secure infrastructure that supports long-term growth."
       }
+    ],
+    "products": [
+      {
+        "name": "Claude MD",
+        "subtitle": "Workers' Compensation & Private Medical Billing",
+        "description": "Syncra's virtual assistants operate Claude MD as the operational backbone of our Workers' Compensation and private medical billing services. From charge entry and electronic claims submission through to EDI rejections, payment posting, and collections follow-up — every step of the billing cycle is managed with precision inside a system purpose-built for the complexity of US healthcare billing. For our clients, this means fewer denials, faster reimbursements, and a revenue cycle that runs without guess.",
+        "tagline": "The billing platform behind every clean claim and collected dollar."
+      },
+      {
+        "name": "Cyclone RCM",
+        "subtitle": "Copy Services & Interpreter Billing",
+        "description": "Cyclone RCM powers Syncra's copy service and interpreter billing operations, giving our specialists the tools to manage subpoena processing, record retrieval tracking, order creation, and interpreter invoice management within a single, structured system. In California Workers' Compensation, where documentation deadlines are non-negotiable and billing errors carry direct financial consequences, Cyclone RCM ensures nothing is missed, nothing is late, and every billable event is captured and followed through to payment.",
+        "tagline": "Purpose-built for copy services and the billing complexity that comes with it."
+      },
+      {
+        "name": "Sumxio",
+        "subtitle": "Document Summarization",
+        "description": "Sumxio is the platform Syncra's specialists use to deliver accurate, structured medical record summaries for workers' compensation and legal clients. What would take an in-house team hours of manual review is turned around with speed and precision, producing clear, organized summaries that give attorneys, adjusters, and case managers exactly the information they need, without the noise. It's document management done at a standard that protects case outcomes and keeps every stakeholder fully informed.",
+        "tagline": "Medical record complexity, distilled into clarity your team can act on."
+      }
     ]
   },
   {
@@ -241,37 +261,34 @@
   {
     "slug": "legal-process-outsourcing",
     "title": "Legal Process Outsourcing (LPO)",
-    "description": "Legal practices run on documentation, deadlines, and detail. The back-office burden — from subpoena follow-ups to panel request tracking — consumes hours that your legal professionals could be spending on billable work. When these tasks fall behind, case flow suffers and client outcomes are at risk.",
-    "listHeading": "LPO Services Include:",
+    "description": "Our Virtual Legal Assistants specialise in the meticulous back-office tasks that bog down US law firms, particularly in personal injury and Workers' Compensation cases.",
+    "listHeading": "Services Include:",
     "groups": [
       {
         "title": "",
         "items": [
-          "Subpoena Preparation & Verification",
-          "Case File Management & Document Intake",
-          "Panel Request Tracking & Status Updates",
-          "Record Retrieval Coordination",
-          "Legal Document Summarization & Indexes",
-          "Calendaring & Deadline Management",
-          "Client and Payer Correspondence",
-          "Compliance & Secure Data Archiving"
+          "Workers' Compensation Adjudication",
+          "Form 4500 Letter Submissions",
+          "Subpoena Follow-ups",
+          "Panel Request Tracking",
+          "Proof of Service Documentation"
         ]
       }
     ],
-    "footerText": "We operate as a seamless extension of your firm, providing secure, detail-driven legal administrative support that helps you protect case outcomes and increase billable productivity.",
+    "footerText": "",
     "whyTitle": "Why Syncra for Legal Process Outsourcing?",
     "whyCards": [
       {
-        "title": "Unmatched Legal Administrative Precision",
-        "description": "Our specialists are trained extensively in the specific documentation demands of US law firms, ensuring that subpoena tracking and record retrieval are managed with zero errors."
+        "title": "Cost Reduction",
+        "description": "Through strategic outsourcing of documentation and case management tasks, firms significantly reduce administrative overhead — freeing up budget for what matters most."
       },
       {
-        "title": "Enhanced Attorney Productivity",
-        "description": "By offloading time-consuming administrative follow-ups to our dedicated virtual assistants, your attorneys can focus entirely on case strategy, litigation, and billable work."
+        "title": "Billable Hour Focus",
+        "description": "Legal professionals can channel their efforts entirely into billable hours, entrusting Syncra with the meticulous back-office work that demands precision and consistency."
       },
       {
-        "title": "Deadlines Met without Fail",
-        "description": "Legal case flow requires strict adherence to timelines. Our team operates with highly organized systems that track subpoena status and panel requests to guarantee no deadline is missed."
+        "title": "Effortless Case Flow",
+        "description": "Our specialists ensure every filing deadline is met, every document is organized, and every follow-up is tracked — keeping your cases moving without disruption."
       }
     ]
   }
