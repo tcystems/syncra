@@ -1,8 +1,8 @@
 [
   {
     "slug": "emc-billing",
-    "title": "EMC Copy Service Billing & Revenue Management",
-    "description": "We provide comprehensive EMC copy service billing and revenue management solutions purpose-built for California Workers' Compensation practices. Our specialists manage the entire billing lifecycle with a focus on accuracy, compliance, operational efficiency, and revenue recovery.",
+    "title": "Copy Service Billing & Revenue Management",
+    "description": "We provide comprehensive copy service billing and revenue management solutions purpose-built for California Workers' Compensation practices. Our specialists manage the entire billing lifecycle with a focus on accuracy, compliance, operational efficiency, and revenue recovery.",
     "listHeading": "Services Include:",
     "groups": [
       {
@@ -235,6 +235,43 @@
       {
         "title": "Performance Without the Overhead",
         "description": "Access a full spectrum of digital marketing expertise at a fraction of the cost of building an in-house team — without compromising on quality, creativity, or execution."
+      }
+    ]
+  },
+  {
+    "slug": "legal-process-outsourcing",
+    "title": "Legal Process Outsourcing (LPO)",
+    "description": "Legal practices run on documentation, deadlines, and detail. The back-office burden — from subpoena follow-ups to panel request tracking — consumes hours that your legal professionals could be spending on billable work. When these tasks fall behind, case flow suffers and client outcomes are at risk.",
+    "listHeading": "LPO Services Include:",
+    "groups": [
+      {
+        "title": "",
+        "items": [
+          "Subpoena Preparation & Verification",
+          "Case File Management & Document Intake",
+          "Panel Request Tracking & Status Updates",
+          "Record Retrieval Coordination",
+          "Legal Document Summarization & Indexes",
+          "Calendaring & Deadline Management",
+          "Client and Payer Correspondence",
+          "Compliance & Secure Data Archiving"
+        ]
+      }
+    ],
+    "footerText": "We operate as a seamless extension of your firm, providing secure, detail-driven legal administrative support that helps you protect case outcomes and increase billable productivity.",
+    "whyTitle": "Why Syncra for Legal Process Outsourcing?",
+    "whyCards": [
+      {
+        "title": "Unmatched Legal Administrative Precision",
+        "description": "Our specialists are trained extensively in the specific documentation demands of US law firms, ensuring that subpoena tracking and record retrieval are managed with zero errors."
+      },
+      {
+        "title": "Enhanced Attorney Productivity",
+        "description": "By offloading time-consuming administrative follow-ups to our dedicated virtual assistants, your attorneys can focus entirely on case strategy, litigation, and billable work."
+      },
+      {
+        "title": "Deadlines Met without Fail",
+        "description": "Legal case flow requires strict adherence to timelines. Our team operates with highly organized systems that track subpoena status and panel requests to guarantee no deadline is missed."
       }
     ]
   }
