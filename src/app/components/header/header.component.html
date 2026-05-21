@@ -12,18 +12,16 @@
         <li class="dropdown" [class.open]="servicesDropdownOpen" (click)="$event.stopPropagation()">
           <a href="#" (click)="toggleServicesDropdown($event)">Services <span class="arrow" [class.rotated]="servicesDropdownOpen">▼</span></a>
           <div class="dropdown-menu" *ngIf="servicesDropdownOpen">
-            <a routerLink="/services/emc-billing" (click)="servicesDropdownOpen = false">EMC Billing &amp; Revenue</a>
+            <a routerLink="/services/emc-billing" (click)="servicesDropdownOpen = false">Copy Service Billing &amp; Revenue</a>
             <a routerLink="/services/healthcare-rcm" (click)="servicesDropdownOpen = false">Healthcare RCM</a>
             <a routerLink="/services/administrative-support" (click)="servicesDropdownOpen = false">Administrative Support</a>
             <a routerLink="/services/finance-solutions" (click)="servicesDropdownOpen = false">Finance Solutions</a>
             <a routerLink="/services/tech-software" (click)="servicesDropdownOpen = false">Tech &amp; Software</a>
             <a routerLink="/services/digital-marketing" (click)="servicesDropdownOpen = false">Digital Marketing Solutions</a>
+            <a routerLink="/services/legal-process-outsourcing" (click)="servicesDropdownOpen = false">Legal Process Outsourcing (LPO)</a>
           </div>
         </li>
-        <li><a routerLink="/our-work">Our Work</a></li>
         <li><a routerLink="/blogs">Blogs</a></li>
-        <li><a routerLink="/software">Software</a></li>
-        <li><a routerLink="/clients">Clients</a></li>
       </ul>
     </nav>
     <div class="header-actions">

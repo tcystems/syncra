@@ -16,12 +16,12 @@
 
   .footer-layout {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1.2fr 1.2fr;
     gap: 40px;
     padding-bottom: 60px;
     
     @media (max-width: 992px) {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       .info-col {
         grid-column: 1 / -1;
       }

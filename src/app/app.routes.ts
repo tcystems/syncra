@@ -4,8 +4,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { BlogsComponent } from './pages/blogs/blogs.component';
 import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component';
 import { SoftwareComponent } from './pages/software/software.component';
+import { SoftwareDetailComponent } from './pages/software-detail/software-detail.component';
 import { ServiceDetailComponent } from './pages/service-detail/service-detail.component';
-import { ClientsComponent } from './pages/clients/clients.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,7 +14,6 @@ export const routes: Routes = [
   { path: 'blogs', component: BlogsComponent },
   { path: 'blog/:slug', component: BlogDetailComponent },
   { path: 'software', component: SoftwareComponent },
+  { path: 'software/:slug', component: SoftwareDetailComponent },
   { path: 'services/:slug', component: ServiceDetailComponent },
-  { path: 'clients', component: ClientsComponent },
-  { path: 'client', component: ClientsComponent },
 ];

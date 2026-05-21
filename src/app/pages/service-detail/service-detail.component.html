@@ -67,26 +67,26 @@
       </div>
     </div>
 
-  </div>
-
-  <!-- Contact Section (reused) -->
-  <section class="contact-section">
-    <div class="container contact-container">
-      <div class="contact-content">
-        <span class="section-badge">GET IN TOUCH</span>
-        <h2>Let's Build Your<br>Growth Journey<br>Together.</h2>
-        <p>We're ready to help you build a more efficient and dependable team.</p>
-      </div>
-
-      <div class="contact-form">
-        <div class="form-group"><input type="text" placeholder="Your Name *"></div>
-        <div class="form-group"><input type="email" placeholder="Email Address *"></div>
-        <div class="form-group"><input type="tel" placeholder="Phone Number (Optional)"></div>
-        <div class="form-group"><input type="text" placeholder="Message *"></div>
-        <button class="btn-submit">Leave Us a Message</button>
+    <!-- Optional Products Showcase (e.g. Technology & Software Solutions) -->
+    <div class="products-showcase" *ngIf="service.products && service.products.length > 0">
+      <div class="product-card" *ngFor="let product of service.products">
+        <div class="product-content">
+          <div class="product-logo-wrapper">
+            <img [src]="product.logo" [alt]="product.name" class="product-logo-img">
+          </div>
+          <h3>{{ product.name }}</h3>
+          <p class="product-subtitle">{{ product.subtitle }}</p>
+          <p class="product-description">{{ product.description }}</p>
+        </div>
+        <div class="product-tagline">
+          <h4>{{ product.tagline }}</h4>
+        </div>
       </div>
     </div>
-  </section>
+
+  </div>
+
+  <app-contact></app-contact>
 </div>
 
 <div class="service-detail-page loading" *ngIf="!service && !error">

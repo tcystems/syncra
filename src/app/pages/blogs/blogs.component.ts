@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
+import { ContactComponent } from '../../components/contact/contact.component';
 
 @Component({
   selector: 'app-blogs',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ContactComponent],
   templateUrl: './blogs.component.html',
   styleUrl: './blogs.component.scss'
 })

@@ -1,62 +1,25 @@
-<div class="software-page">
+<div class="our-works-page">
   <div class="container">
-    <div class="software-cards">
-      
-      <!-- Card 1 -->
-      <div class="software-card">
-        <div class="content">
-          <h2>Claude MD</h2>
-          <p class="subtitle">Workers' Compensation & Private Medical Billing</p>
-          <p class="description">Syncra's virtual assistants operate Claude MD as the operational backbone of our Workers' Compensation and private medical billing services. From charge entry and electronic claims submission through to EDI rejections, payment posting, and collections follow-up — every step of the billing cycle is managed with precision inside a system purpose-built for the complexity of US healthcare billing. For our clients, this means fewer denials, faster reimbursements, and a revenue cycle that runs without guess.</p>
-        </div>
-        <div class="title-large">
-          <h3>The billing platform behind every clean claim and collected dollar<span class="dot">.</span></h3>
-        </div>
-      </div>
+    <div class="works-header">
+      <h1>Built with precision to support<br>growth, efficiency, and long-term success.</h1>
+    </div>
 
-      <!-- Card 2 -->
-      <div class="software-card">
-        <div class="content">
-          <h2>Cyclone RCM</h2>
-          <p class="subtitle">Copy Services & Interpreter Billing</p>
-          <p class="description">Cyclone RCM powers Syncra's copy service and interpreter billing operations, giving our specialists the tools to manage subpoena processing, record retrieval tracking, order creation, and interpreter invoice management within a single, structured system. In California Workers' Compensation, where documentation deadlines are non-negotiable and billing errors carry direct financial consequences, Cyclone RCM ensures nothing is missed, nothing is late, and every billable event is captured and followed through to payment.</p>
+    <div class="works-grid">
+      <!-- Cards list -->
+      <a [routerLink]="['/software', project.slug]" class="work-card" *ngFor="let project of projects">
+        <div class="card-image">
+          <img [src]="project.image" [alt]="project.title">
         </div>
-        <div class="title-large">
-          <h3>Purpose-built for copy services and the billing complexity that comes with it<span class="dot">.</span></h3>
+        <div class="card-info">
+          <img [src]="project.logo" [alt]="project.title + ' Logo'" class="client-logo">
+          <div class="client-text">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.subtitle }}</p>
+          </div>
         </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="software-card">
-        <div class="content">
-          <h2>Sumixio</h2>
-          <p class="subtitle">Document Summarization</p>
-          <p class="description">Sumixio is the platform Syncra's specialists use to deliver accurate, structured medical record summaries for workers' compensation and legal clients. What would take an in-house team hours of manual review is turned around with speed and precision, producing clear, organized summaries that give attorneys, adjusters, and case managers exactly the information they need, without the noise. It's document management done at a standard that protects case outcomes and keeps every stakeholder fully informed.</p>
-        </div>
-        <div class="title-large">
-          <h3>Medical record complexity, distilled into clarity your team can act on<span class="dot">.</span></h3>
-        </div>
-      </div>
-
+      </a>
     </div>
   </div>
 
-  <!-- Contact Section -->
-  <section class="contact-section">
-    <div class="container contact-container">
-      <div class="contact-content">
-        <span class="section-badge">GET IN TOUCH</span>
-        <h2>Let's Build Your<br>Growth Journey<br>Together.</h2>
-        <p>We're ready to help you build a more efficient and dependable team.</p>
-      </div>
-
-      <div class="contact-form">
-        <div class="form-group"><input type="text" placeholder="Your Name *"></div>
-        <div class="form-group"><input type="email" placeholder="Email Address *"></div>
-        <div class="form-group"><input type="tel" placeholder="Phone Number (Optional)"></div>
-        <div class="form-group"><input type="text" placeholder="Message *"></div>
-        <button class="btn-submit">Leave Us a Message</button>
-      </div>
-    </div>
-  </section>
+  <app-contact></app-contact>
 </div>

@@ -1,8 +1,8 @@
 [
   {
     "slug": "emc-billing",
-    "title": "EMC Copy Service Billing & Revenue Management",
-    "description": "We provide comprehensive EMC copy service billing and revenue management solutions purpose-built for California Workers' Compensation practices. Our specialists manage the entire billing lifecycle with a focus on accuracy, compliance, operational efficiency, and revenue recovery.",
+    "title": "Copy Service Billing & Revenue Management",
+    "description": "We provide comprehensive copy service billing and revenue management solutions purpose-built for California Workers' Compensation practices. Our specialists manage the entire billing lifecycle with a focus on accuracy, compliance, operational efficiency, and revenue recovery.",
     "listHeading": "Services Include:",
     "groups": [
       {
@@ -40,7 +40,7 @@
       }
     ],
     "footerText": "By combining specialised industry knowledge with structured operational workflows, we help organizations reduce administrative burden, accelerate collections, improve cash flow, and maintain accurate financial operations throughout the revenue cycle.",
-    "whyTitle": "Why Syncra for EMC Copy Services & Revenue Management?",
+    "whyTitle": "Why Syncra for Copy Services & Revenue Management?",
     "whyCards": [
       {
         "title": "End-to-End Revenue Cycle Ownership",
@@ -199,6 +199,29 @@
         "title": "Flexible & Scalable Systems",
         "description": "Our solutions are designed to adapt to evolving business requirements, providing customizable functionality and secure infrastructure that supports long-term growth."
       }
+    ],
+    "products": [
+      {
+        "name": "Claude MD",
+        "logo": "assets/images/services-pgs/L1.png",
+        "subtitle": "Workers' Compensation & Private Medical Billing",
+        "description": "Syncra's virtual assistants operate Claude MD as the operational backbone of our Workers' Compensation and private medical billing services. From charge entry and electronic claims submission through to EDI rejections, payment posting, and collections follow-up — every step of the billing cycle is managed with precision inside a system purpose-built for the complexity of US healthcare billing. For our clients, this means fewer denials, faster reimbursements, and a revenue cycle that runs without guess.",
+        "tagline": "The billing platform behind every clean claim and collected dollar."
+      },
+      {
+        "name": "Cyclone RCM",
+        "logo": "assets/images/services-pgs/L2.png",
+        "subtitle": "Copy Services & Interpreter Billing",
+        "description": "Cyclone RCM powers Syncra's copy service and interpreter billing operations, giving our specialists the tools to manage subpoena processing, record retrieval tracking, order creation, and interpreter invoice management within a single, structured system. In California Workers' Compensation, where documentation deadlines are non-negotiable and billing errors carry direct financial consequences, Cyclone RCM ensures nothing is missed, nothing is late, and every billable event is captured and followed through to payment.",
+        "tagline": "Purpose-built for copy services and the billing complexity that comes with it."
+      },
+      {
+        "name": "Sumxio",
+        "logo": "assets/images/services-pgs/L3.png",
+        "subtitle": "Document Summarization",
+        "description": "Sumxio is the platform Syncra's specialists use to deliver accurate, structured medical record summaries for workers' compensation and legal clients. What would take an in-house team hours of manual review is turned around with speed and precision, producing clear, organized summaries that give attorneys, adjusters, and case managers exactly the information they need, without the noise. It's document management done at a standard that protects case outcomes and keeps every stakeholder fully informed.",
+        "tagline": "Medical record complexity, distilled into clarity your team can act on."
+      }
     ]
   },
   {
@@ -235,6 +258,40 @@
       {
         "title": "Performance Without the Overhead",
         "description": "Access a full spectrum of digital marketing expertise at a fraction of the cost of building an in-house team — without compromising on quality, creativity, or execution."
+      }
+    ]
+  },
+  {
+    "slug": "legal-process-outsourcing",
+    "title": "Legal Process Outsourcing (LPO)",
+    "description": "Our Virtual Legal Assistants specialise in the meticulous back-office tasks that bog down US law firms, particularly in personal injury and Workers' Compensation cases.",
+    "listHeading": "Services Include:",
+    "groups": [
+      {
+        "title": "",
+        "items": [
+          "Workers' Compensation Adjudication",
+          "Form 4500 Letter Submissions",
+          "Subpoena Follow-ups",
+          "Panel Request Tracking",
+          "Proof of Service Documentation"
+        ]
+      }
+    ],
+    "footerText": "",
+    "whyTitle": "Why Syncra for Legal Process Outsourcing?",
+    "whyCards": [
+      {
+        "title": "Cost Reduction",
+        "description": "Through strategic outsourcing of documentation and case management tasks, firms significantly reduce administrative overhead — freeing up budget for what matters most."
+      },
+      {
+        "title": "Billable Hour Focus",
+        "description": "Legal professionals can channel their efforts entirely into billable hours, entrusting Syncra with the meticulous back-office work that demands precision and consistency."
+      },
+      {
+        "title": "Effortless Case Flow",
+        "description": "Our specialists ensure every filing deadline is met, every document is organized, and every follow-up is tracked — keeping your cases moving without disruption."
       }
     ]
   }
