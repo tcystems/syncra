@@ -1,0 +1,363 @@
+[
+  {
+    "slug": "matrix-document-imaging",
+    "title": "Matrix Document Imaging",
+    "subtitle": "End-to-End Copy Services & Revenue Cycle Management",
+    "badge": "California WC",
+    "logo": "assets/images/works/Frame 1707480028.png",
+    "image": "assets/images/works/P1.jpg",
+    "slogan": "From fragmented workflows to a fully managed revenue cycle.",
+    "tags": ["Copy Services", "RCM", "Collections", "Document Management"],
+    "services": [
+      "WC submission & copy service",
+      "Payer & record verification",
+      "Penalty billing",
+      "Collections",
+      "Document summarization & management"
+    ],
+    "description": [
+      "Matrix Document Imaging requires a reliable partner to manage the full documentation and billing lifecycle for their California Workers' Compensation copy operations. Manual submission workflows were creating compliance gaps and delaying revenue recovery. Syncra took full ownership of the WC submission process, penalty billing, and collections—while implementing structured document summarization and management protocols to bring clarity and consistency across every case file.",
+      "The result is an integrated, end-to-end operation that eliminates the gaps between documentation and billing—ensuring every record is verified, every bill is submitted on time, and every recoverable dollar is collected."
+    ],
+    "stats": [
+      {
+        "value": "100%",
+        "label": "EMC submission accuracy",
+        "trend": "none"
+      },
+      {
+        "value": "5",
+        "label": "Integrated service functions",
+        "trend": "none"
+      },
+      {
+        "value": "↓",
+        "label": "Compliance gaps eliminated",
+        "trend": "down"
+      }
+    ]
+  },
+  {
+    "slug": "proactive-health",
+    "title": "Proactive Health",
+    "subtitle": "WC Medical Billing & Employer Collections",
+    "badge": "Workers' Compensation",
+    "logo": "assets/images/works/Frame 1707480029.png",
+    "image": "assets/images/works/P2.jpg",
+    "slogan": "Dual-channel billing — medical and employer — running without disruption.",
+    "tags": ["WC Medical Billing", "Employer Billing", "Collections"],
+    "services": [
+      "EMC submission & copy service",
+      "Payer & record verification",
+      "Employer billing & collection support"
+    ],
+    "description": [
+      "Proactive Health operates across two distinct billing channels — medical billing through the California Workers' Compensation system and direct employer billing for occupational health services. Managing both simultaneously demanded a partner with deep WC expertise and the operational discipline to keep both cycles running in parallel without delays or errors.",
+      "Syncra provides dedicated virtual assistants trained specifically in California WC protocols, handling medical bill submissions and payer follow-ups alongside employer invoice generation and collections — ensuring consistent cash flow across both revenue streams."
+    ],
+    "stats": [
+      {
+        "value": "2",
+        "label": "Billing channels managed",
+        "trend": "none"
+      },
+      {
+        "value": "0",
+        "label": "Missed billing cycles",
+        "trend": "none"
+      },
+      {
+        "value": "↑",
+        "label": "Collections rate",
+        "trend": "up"
+      }
+    ]
+  },
+  {
+    "slug": "keystone",
+    "title": "Keystone",
+    "subtitle": "WC Medical Billing, Collections, Posting & RFA Management",
+    "badge": "Workers' Compensation",
+    "logo": "assets/images/works/Frame 1707480030.png",
+    "image": "assets/images/works/P3.png",
+    "slogan": "Full-cycle WC billing with RFA processing built in.",
+    "tags": ["WC Medical Billing", "Payment Posting", "RFA", "Collections"],
+    "services": [
+      "WC medical billing & collections",
+      "Payment posting & reconciliation",
+      "Request for Authorization (RFA) management"
+    ],
+    "description": [
+      "Keystone required a comprehensive billing operation that extended beyond standard medical billing to include accurate payment posting and the precise management of Requests for Authorization — a critical and time-sensitive function in California Workers' Compensation practices. Delays in RFA processing directly impact treatment approvals and case timelines.",
+      "Syncra's specialists manage the full billing and collections cycle while maintaining meticulous RFA tracking and submission — ensuring treatment requests are processed on time, payments are posted accurately, and accounts receivable remain tightly controlled."
+    ],
+    "stats": [
+      {
+        "value": "4",
+        "label": "Service functions delivered",
+        "trend": "none"
+      },
+      {
+        "value": "↑",
+        "label": "RFA processing speed",
+        "trend": "up"
+      },
+      {
+        "value": "↓",
+        "label": "Aged receivables",
+        "trend": "down"
+      }
+    ]
+  },
+  {
+    "slug": "calcity-urgent-care",
+    "title": "Calcity Urgent Care",
+    "subtitle": "Private Medical Billing, Collections & Payment Posting",
+    "badge": "Private Medical",
+    "logo": "assets/images/works/Frame 1707480031.png",
+    "image": "assets/images/works/P4.jpg",
+    "slogan": "Private billing managed end-to-end — from charge entry to cash posting.",
+    "tags": ["Private Medical Billing", "Payment Posting", "Collections"],
+    "services": [
+      "Private medical billing",
+      "Collections management",
+      "Payment posting & reconciliation"
+    ],
+    "description": [
+      "As an urgent care provider operating in the private medical billing space, Calcity Urgent Care faced the challenge of managing high patient volumes with consistent billing accuracy and efficient collections follow-through. Errors in charge entry or delayed payment posting were directly impacting cash flow and creating reconciliation headaches at month-end.",
+      "Syncra delivers a dedicated billing operation covering the full private medical billing cycle — from accurate charge submission and payer follow-ups through to collections and precise payment posting — keeping Calcity's revenue cycle clean, predictable, and fully reconciled."
+    ],
+    "stats": [
+      {
+        "value": "↑",
+        "label": "Billing accuracy",
+        "trend": "up"
+      },
+      {
+        "value": "↓",
+        "label": "Days in AR",
+        "trend": "down"
+      },
+      {
+        "value": "↑",
+        "label": "Collections recovery rate",
+        "trend": "up"
+      }
+    ]
+  },
+  {
+    "slug": "ventura-county",
+    "title": "Ventura County Occupational Medical Center",
+    "subtitle": "Dual-Track Billing — WC & Private Medical",
+    "badge": "WC + Private Medical",
+    "logo": "assets/images/works/Frame 1707480032.png",
+    "image": "assets/images/works/P5.png",
+    "slogan": "One partner. Two billing systems. Zero gaps.",
+    "tags": ["WC Medical Billing", "Payment Posting", "Collections", "Private Medical Billing"],
+    "services": [
+      "WC medical billing, collections & posting",
+      "Private medical billing, collections & posting"
+    ],
+    "description": [
+      "Ventura County Occupational Medical Center operates across both the California Workers' Compensation system and private medical billing — two distinct regulatory environments, each with their own payer rules, billing formats, compliance requirements, and collections protocols. Managing both in parallel without errors or delays demands a partner with genuine depth in both disciplines.",
+      "Syncra provides a unified billing operation across both tracks — handling WC medical billing, private medical billing, collections, and payment posting within a single, coordinated team. The result is complete revenue cycle coverage without the operational overhead of managing two separate billing functions internally."
+    ],
+    "stats": [
+      {
+        "value": "2",
+        "label": "Billing systems managed",
+        "trend": "none"
+      },
+      {
+        "value": "↑",
+        "label": "Revenue recovery",
+        "trend": "up"
+      },
+      {
+        "value": "1",
+        "label": "Unified team, full coverage",
+        "trend": "none"
+      }
+    ]
+  },
+  {
+    "slug": "dms",
+    "title": "DMS",
+    "subtitle": "Copy Services & Interpreter Billing",
+    "badge": "Copy Services & Interpreter",
+    "logo": "assets/images/works/Frame 1707480033.png",
+    "image": "assets/images/works/P6.png",
+    "slogan": "Optimized copy services and interpreter billing workflows for maximized collections.",
+    "tags": ["Copy Services", "Interpreter Billing", "Collections"],
+    "services": [
+      "Copy service billing & collections",
+      "Interpreter service invoicing",
+      "Payer compliance and follow-up"
+    ],
+    "description": [
+      "DMS provides essential copy services and professional interpreter solutions in the medical and legal space. The specialized nature of their services required a unique billing approach to navigate the intricacies of Workers' Compensation schedules and regulatory guidelines.",
+      "Syncra stepped in to deliver specialized billing workflows, accelerating invoice generation and ensuring full compliance with industry standards. Our collections specialists ensure timely follow-ups with payers to minimize days in accounts receivable."
+    ],
+    "stats": [
+      {
+        "value": "98%",
+        "label": "Billing accuracy rate",
+        "trend": "none"
+      },
+      {
+        "value": "↓",
+        "label": "Aged accounts reduction",
+        "trend": "down"
+      },
+      {
+        "value": "↑",
+        "label": "Cash flow efficiency",
+        "trend": "up"
+      }
+    ]
+  },
+  {
+    "slug": "stn",
+    "title": "STN",
+    "subtitle": "Administrative Support",
+    "badge": "Administrative Support",
+    "logo": "assets/images/works/Frame 1707480034.png",
+    "image": "assets/images/works/P7.png",
+    "slogan": "Comprehensive backend administrative operations built for scale.",
+    "tags": ["Admin Support", "Data Management", "Workflow Optimization"],
+    "services": [
+      "Backend data entry and management",
+      "Document indexing & categorization",
+      "Workflow management and reporting"
+    ],
+    "description": [
+      "STN required a highly scalable backend operation to handle large volumes of administrative data and document processing. Internal resources were stretched, leading to processing bottlenecks and minor data entry lag.",
+      "Syncra provided a dedicated virtual support team to manage STN's backend data and document pipelines. By implementing streamlined processing queues and rigorous quality control steps, we successfully removed bottlenecks and improved daily operations."
+    ],
+    "stats": [
+      {
+        "value": "24/7",
+        "label": "Operation readiness support",
+        "trend": "none"
+      },
+      {
+        "value": "100%",
+        "label": "SLA compliance",
+        "trend": "none"
+      },
+      {
+        "value": "↓",
+        "label": "Turnaround time",
+        "trend": "down"
+      }
+    ]
+  },
+  {
+    "slug": "stacy-medical-center",
+    "title": "Stacy Medical Center",
+    "subtitle": "WC Medical Billing, Collections & Payment Posting",
+    "badge": "Workers' Compensation",
+    "logo": "assets/images/works/Frame 1707480035.png",
+    "image": "assets/images/works/P8.jpg",
+    "slogan": "End-to-end Workers' Compensation billing with zero overhead.",
+    "tags": ["WC Billing", "Collections", "Payment Posting"],
+    "services": [
+      "Workers' Compensation bill submission",
+      "Payment posting & reconciliation",
+      "Payer disputes and follow-ups"
+    ],
+    "description": [
+      "Stacy Medical Center needed to improve its internal Workers' Compensation medical billing and collections process. Delayed bill submissions and lack of systematic follow-ups on unpaid claims were negatively impacting cash flow.",
+      "Syncra took full ownership of Stacy Medical Center's WC billing pipeline. Our dedicated billing assistants manage complete bill compilation, submission, payer follow-ups, and precise payment posting, ensuring consistent recovery on all medical claims."
+    ],
+    "stats": [
+      {
+        "value": "↑",
+        "label": "Collections recovery rate",
+        "trend": "up"
+      },
+      {
+        "value": "0",
+        "label": "Unposted payment backlog",
+        "trend": "none"
+      },
+      {
+        "value": "↓",
+        "label": "Billing cycles duration",
+        "trend": "down"
+      }
+    ]
+  },
+  {
+    "slug": "abramson-labor-group",
+    "title": "Abramson Labor Group",
+    "subtitle": "Workers' Compensation & Employment Law Support",
+    "badge": "Employment Law Support",
+    "logo": "assets/images/works/Frame 1707480036.png",
+    "image": "assets/images/works/P9.png",
+    "slogan": "Specialized legal support and case management workflows for labor law firms.",
+    "tags": ["Legal Support", "Case Management", "Document Review"],
+    "services": [
+      "Workers' Compensation legal support",
+      "Case file review & document collection",
+      "Client onboarding assistance"
+    ],
+    "description": [
+      "As a busy labor and employment law firm, Abramson Labor Group faced the challenge of managing high volumes of incoming client document packets and coordinating complex case folders for their Workers' Compensation cases.",
+      "Syncra provides highly trained legal support assistants who handle key administrative steps, including case file assembly, structured document indexing, and proactive follow-ups with clients. This allows Abramson's legal team to focus fully on core legal strategy and case advocacy."
+    ],
+    "stats": [
+      {
+        "value": "500+",
+        "label": "Case files managed monthly",
+        "trend": "none"
+      },
+      {
+        "value": "↑",
+        "label": "Client onboarding speed",
+        "trend": "up"
+      },
+      {
+        "value": "↓",
+        "label": "Document processing delays",
+        "trend": "down"
+      }
+    ]
+  },
+  {
+    "slug": "humphrey-and-associates",
+    "title": "Humphrey and Associates",
+    "subtitle": "Workers' Compensation Law Support",
+    "badge": "Legal Law Support",
+    "logo": "assets/images/works/Frame 1707480037.png",
+    "image": "assets/images/works/P10.jpg",
+    "slogan": "Efficient case file preparation and administrative support for Workers' Compensation litigation.",
+    "tags": ["Legal Admin", "Case Preparation", "Litigation Support"],
+    "services": [
+      "Workers' Compensation litigation support",
+      "Case file preparation & indexing",
+      "Medical records collection & follow-ups"
+    ],
+    "description": [
+      "Humphrey and Associates required structured litigation support to manage the documentation lifecycle for their California Workers' Compensation cases. Collecting and organizing medical reports from multiple clinics was causing severe operational strain.",
+      "Syncra delivers a dedicated team of legal admin specialists who manage records collection, client updates, and case preparation. We keep all case folders organized, up-to-date, and fully indexed, ready for review ahead of key hearings and negotiations."
+    ],
+    "stats": [
+      {
+        "value": "100%",
+        "label": "File preparation accuracy",
+        "trend": "none"
+      },
+      {
+        "value": "↓",
+        "label": "Records collection lag",
+        "trend": "down"
+      },
+      {
+        "value": "↑",
+        "label": "Attorney preparation efficiency",
+        "trend": "up"
+      }
+    ]
+  }
+]
