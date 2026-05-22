@@ -7,7 +7,7 @@
     </div>
 
     <div class="contact-form-card">
-      <form class="contact-form">
+      <form class="contact-form" (submit)="onSubmit($event)">
         <div class="form-group">
           <input type="text" placeholder="Your Name *" required>
         </div>
