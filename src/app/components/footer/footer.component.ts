@@ -12,4 +12,12 @@ import { RouterLink } from '@angular/router';
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+
+  scrollToContact(event: Event) {
+    event.preventDefault();
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }

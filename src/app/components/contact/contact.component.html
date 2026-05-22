@@ -1,4 +1,4 @@
-<section class="contact-section">
+<section id="contact" class="contact-section">
   <div class="container contact-container">
     <div class="contact-content">
       <span class="section-badge">GET IN TOUCH</span>
@@ -7,7 +7,7 @@
     </div>
 
     <div class="contact-form-card">
-      <form class="contact-form">
+      <form class="contact-form" (submit)="onSubmit($event)">
         <div class="form-group">
           <input type="text" placeholder="Your Name *" required>
         </div>
@@ -20,12 +20,13 @@
         <div class="form-group select-group">
           <select required>
             <option value="" disabled selected hidden>What type of service are you looking for?</option>
-            <option value="billing">EMC Copy Service Billing & Revenue Management</option>
-            <option value="rcm">Healthcare Revenue Cycle Management (RCM)</option>
-            <option value="software">Technology & Software Solutions</option>
-            <option value="admin">Administrative Support</option>
-            <option value="finance">Finance Solutions</option>
-            <option value="marketing">Digital Marketing Solutions</option>
+            <option value="emc-billing">Copy Service Billing &amp; Revenue</option>
+            <option value="healthcare-rcm">Healthcare RCM</option>
+            <option value="administrative-support">Administrative Support</option>
+            <option value="finance-solutions">Finance Solutions</option>
+            <option value="tech-software">Tech &amp; Software</option>
+            <option value="digital-marketing">Digital Marketing Solutions</option>
+            <option value="legal-process-outsourcing">Legal Process Outsourcing (LPO)</option>
           </select>
           <span class="select-arrow">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>

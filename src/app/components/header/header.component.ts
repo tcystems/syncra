@@ -23,6 +23,13 @@ export class HeaderComponent {
     this.servicesDropdownOpen = !this.servicesDropdownOpen;
   }
 
+  scrollToContact() {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   @HostListener('document:click')
   closeDropdown() {
     this.servicesDropdownOpen = false;
