@@ -49,14 +49,22 @@
     &:hover {
       transform: scale(1.02);
     }
+
+    @media (max-width: 768px) {
+      height: 240px;
+    }
   }
 }
 
 .blogs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 32px;
   margin-bottom: 60px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .blog-card {
