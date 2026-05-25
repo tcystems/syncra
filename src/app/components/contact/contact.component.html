@@ -1,4 +1,5 @@
 <section id="contact" class="contact-section">
+  <!-- Section 1: Leave a Message (Original Contact Form) -->
   <div class="container contact-container">
     <div class="contact-content">
       <span class="section-badge">GET IN TOUCH</span>
@@ -6,19 +7,19 @@
       <p>We're ready to help you build a more efficient and dependable team.</p>
     </div>
 
-    <div class="contact-form-card">
-      <form class="contact-form" (submit)="onSubmit($event)">
+    <div class="contact-form-card compact-card">
+      <form class="contact-form" (submit)="onLeaveMessage($event)">
         <div class="form-group">
-          <input type="text" placeholder="Your Name *" required>
+          <input type="text" placeholder="Your Name *" required name="name">
         </div>
         <div class="form-group">
-          <input type="email" placeholder="Email Address *" required>
+          <input type="email" placeholder="Email Address *" required name="email">
         </div>
         <div class="form-group">
-          <input type="tel" placeholder="Phone Number (Optional)">
+          <input type="tel" placeholder="Phone Number (Optional)" name="phone">
         </div>
         <div class="form-group select-group">
-          <select required>
+          <select required name="service">
             <option value="" disabled selected hidden>What type of service are you looking for?</option>
             <option value="emc-billing">Copy Service Billing &amp; Revenue</option>
             <option value="healthcare-rcm">Healthcare RCM</option>
@@ -33,10 +34,137 @@
           </span>
         </div>
         <div class="form-group">
-          <textarea placeholder="Message *" required rows="3"></textarea>
+          <textarea placeholder="Message *" required rows="3" name="message"></textarea>
         </div>
         <button type="submit" class="btn-submit">Leave Us a Message</button>
       </form>
     </div>
   </div>
+
+  <!-- Divider Line between sections -->
+  <div class="container sections-divider-container">
+    <div class="sections-divider"></div>
+  </div>
+
+  <!-- Section 2: Book a Demo (Revamped Scheduler) -->
+  <div class="container contact-container booking-container">
+    <div class="contact-content">
+      <span class="section-badge">BOOK A DEMO</span>
+      <h2>SCHEDULE YOUR<br><span class="highlight-text">DEMO TODAY.</span></h2>
+      <p>See how Syncra's solutions can streamline your operations, improve efficiency and drive results. Pick a time that works best for you.</p>
+    </div>
+
+    <div class="contact-form-card booking-form-card">
+      <div class="card-header">
+        <div class="calendar-icon-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#81007F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+            <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"></path>
+          </svg>
+        </div>
+        <div class="header-text-wrapper">
+          <h3>Book an Appointment / Demo</h3>
+          <p>Select a date and time to connect with our team.</p>
+        </div>
+      </div>
+      
+      <div class="card-divider"></div>
+
+      <form class="contact-form" (submit)="onBookDemo($event)">
+        <div class="form-columns">
+          <!-- Left Column: Details -->
+          <div class="form-column details-column">
+            <h4 class="column-title">1. What would you like to book ?</h4>
+            <div class="form-group select-group">
+              <select required name="service">
+                <option value="" disabled selected hidden>What type of service are you looking for?</option>
+                <option value="emc-billing">Copy Service Billing &amp; Revenue</option>
+                <option value="healthcare-rcm">Healthcare RCM</option>
+                <option value="administrative-support">Administrative Support</option>
+                <option value="finance-solutions">Finance Solutions</option>
+                <option value="tech-software">Tech &amp; Software</option>
+                <option value="digital-marketing">Digital Marketing Solutions</option>
+                <option value="legal-process-outsourcing">Legal Process Outsourcing (LPO)</option>
+              </select>
+              <span class="select-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </div>
+
+            <h4 class="column-title section-title-spacing">2. Add your details</h4>
+            <div class="form-group">
+              <input type="text" placeholder="Your Name *" required name="name">
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Work Email *" required name="email">
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Phone Number (Optional)" name="phone">
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Anything specific we should know?" name="message">
+            </div>
+          </div>
+
+          <!-- Right Column: Scheduler -->
+          <div class="form-column scheduler-column">
+            <h4 class="column-title">3. Select a date</h4>
+            
+            <div class="calendar-widget">
+              <div class="calendar-header">
+                <button type="button" class="btn-cal-nav" (click)="prevMonth($event)" aria-label="Previous Month">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <span class="cal-month-year">{{ monthNames[currentDate.getMonth()] }} {{ currentDate.getFullYear() }}</span>
+                <button type="button" class="btn-cal-nav" (click)="nextMonth($event)" aria-label="Next Month">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+              
+              <div class="calendar-weekdays">
+                <span *ngFor="let day of daysOfWeek">{{ day }}</span>
+              </div>
+              
+              <div class="calendar-grid">
+                <div *ngFor="let dayInfo of calendarDays" class="calendar-cell">
+                  <button 
+                    *ngIf="dayInfo.day !== null"
+                    type="button" 
+                    class="calendar-day" 
+                    [class.selected]="dayInfo.isSelected"
+                    [class.today]="dayInfo.isToday"
+                    (click)="selectDate(dayInfo, $event)">
+                    <span class="day-number">{{ dayInfo.day }}</span>
+                    <!-- Add dot indicator for weekdays to signify active/available slots -->
+                    <span *ngIf="dayInfo.date && dayInfo.date.getDay() !== 0 && dayInfo.date.getDay() !== 6" class="avail-dot"></span>
+                  </button>
+                  <div *ngIf="dayInfo.day === null" class="calendar-day-empty"></div>
+                </div>
+              </div>
+            </div>
+
+            <h4 class="column-title section-title-spacing">4. Select a time (PST)</h4>
+            
+            <div class="time-slots-grid">
+              <button 
+                *ngFor="let slot of timeSlots" 
+                type="button" 
+                class="time-slot" 
+                [class.active]="selectedTime === slot"
+                (click)="selectTime(slot, $event)">
+                {{ slot }}
+              </button>
+            </div>
+
+            <button type="submit" class="btn-submit">Book My Demo</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
+
+
