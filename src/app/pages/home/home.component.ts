@@ -13,6 +13,7 @@ import { RouterLink } from '@angular/router';
 })
 export class HomeComponent {
   activeFaq: number | null = null;
+  showBookingModal = false;
 
   faqs = [
     { question: 'What services does Syncra offer?', answer: 'Syncra provides RCM & Copy Services, Legal Process Outsourcing, Administrative, Finance, and IT Services tailored to your workflow priorities.' },
@@ -27,4 +28,13 @@ export class HomeComponent {
   toggleFaq(index: number): void {
     this.activeFaq = this.activeFaq === index ? null : index;
   }
+
+  openBookingModal() {
+    this.showBookingModal = true;
+  }
+
+  closeBookingModal() {
+    this.showBookingModal = false;
+  }
 }
+
