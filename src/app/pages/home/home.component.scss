@@ -62,11 +62,37 @@
 
 /* Hero Section */
 .hero-section {
-  background-color: #1a1a1a;
+  background-color: #0d0d0d; // fallback while video loads
   min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
+  position: relative; // needed for absolute video + overlay
+
+  // ── Background video ──────────────────────────────────────────
+  .hero-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  // Dark gradient overlay so text stays legible over any video frame
+  .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.55) 50%,
+      rgba(0, 0, 0, 0.30) 100%
+    );
+  }
 
   .hero-container {
     // Mirror the navbar container exactly → logo and title align perfectly
@@ -78,6 +104,8 @@
     justify-content: space-between;
     align-items: center;
     gap: 40px;
+    position: relative;
+    z-index: 2; // sits above video + overlay
   }
 
   .hero-content {
@@ -99,40 +127,8 @@
     display: flex;
     gap: 16px;
   }
-
-  .hero-video-wrapper {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    .btn-play {
-      background: none;
-      border: 2px solid #666;
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      transition: border-color 0.3s ease;
-
-      &:hover {
-        border-color: #81007F;
-      }
-    }
-
-    .video-text {
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-  }
 }
+
 
 
 /* Partners Section */
