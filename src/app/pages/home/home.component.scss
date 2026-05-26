@@ -901,14 +901,14 @@
     background-position: right center;
     background-repeat: no-repeat;
     pointer-events: auto;
-    clip-path: ellipse(100% 85% at 100% 50%);
+    clip-path: ellipse(100% 75% at 100% 50%);
 
     // Rich multiply blend-mode purple-magenta color overlay
     &::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(129, 0, 127, 0.45) 0%, rgba(80, 0, 80, 0.8) 100%);
+      // background: linear-gradient(135deg, rgba(129, 0, 127, 0.45) 0%, rgba(80, 0, 80, 0.8) 100%);
       mix-blend-mode: multiply;
     }
 
