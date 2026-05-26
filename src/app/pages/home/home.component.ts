@@ -9,6 +9,11 @@ interface CalendarCell {
   isToday: boolean;
 }
 
+interface UsTimezone {
+  abbr: string;
+  label: string;
+}
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -27,8 +32,27 @@ export class HomeComponent implements OnInit {
   calendarCells: CalendarCell[] = [];
   selectedDay: number | null = null;
 
+  // ── US Time zones ────────────────────────────────────────────────
+  usTimezones: UsTimezone[] = [
+    { abbr: 'ET',  label: 'Eastern Time (ET)  — UTC−5/UTC−4'      },
+    { abbr: 'CT',  label: 'Central Time (CT)  — UTC−6/UTC−5'      },
+    { abbr: 'MT',  label: 'Mountain Time (MT) — UTC−7/UTC−6'      },
+    { abbr: 'PT',  label: 'Pacific Time (PT)  — UTC−8/UTC−7'      },
+    { abbr: 'AKT', label: 'Alaska Time (AKT)  — UTC−9/UTC−8'      },
+    { abbr: 'HT',  label: 'Hawaii Time (HT)   — UTC−10'           },
+  ];
+
+  // Raw hour labels; timezone abbreviation appended dynamically
+  private readonly rawSlots = [
+    '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
+    '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM',
+  ];
+
+  timeSlots: string[] = this.rawSlots; // starts without suffix until tz chosen
+
   // ── Booking form model ─────────────────────────────────────────
   bookingForm = {
+    timezone: '',
     time: '',
     service: '',
     company: '',
@@ -58,6 +82,10 @@ export class HomeComponent implements OnInit {
 
   // ── Modal ───────────────────────────────────────────────────────
   openBookingModal(): void {
+    const today = new Date();
+    this.calendarDate = new Date(today.getFullYear(), today.getMonth(), 1);
+    this.selectedDay = today.getDate();
+    this.buildCalendar();
     this.showBookingModal = true;
     document.body.style.overflow = 'hidden';
   }
@@ -65,6 +93,17 @@ export class HomeComponent implements OnInit {
   closeBookingModal(): void {
     this.showBookingModal = false;
     document.body.style.overflow = '';
+  }
+
+  // ── Timezone change ─────────────────────────────────────────────
+  onTimezoneChange(): void {
+    const tz = this.bookingForm.timezone;
+    // Rebuild slots with the chosen timezone abbreviation appended
+    this.timeSlots = tz
+      ? this.rawSlots.map(slot => `${slot} ${tz}`)
+      : this.rawSlots;
+    // Reset chosen time so user picks again with the new label
+    this.bookingForm.time = '';
   }
 
   // ── Calendar logic ──────────────────────────────────────────────
@@ -75,17 +114,15 @@ export class HomeComponent implements OnInit {
 
     this.currentMonthLabel = this.calendarDate.toLocaleString('default', { month: 'long', year: 'numeric' });
 
-    const firstDay = new Date(year, month, 1).getDay(); // 0=Sun
+    const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
     const cells: CalendarCell[] = [];
 
-    // Leading empty cells
     for (let i = 0; i < firstDay; i++) {
       cells.push({ day: null, isToday: false });
     }
 
-    // Day cells
     for (let d = 1; d <= daysInMonth; d++) {
       const isToday =
         d === today.getDate() &&

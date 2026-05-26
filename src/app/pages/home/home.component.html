@@ -292,18 +292,20 @@
 
         <!-- Right: Form -->
         <div class="bm-form">
+
+          <!-- Timezone -->
+          <div class="bm-field">
+            <select class="bm-select" [(ngModel)]="bookingForm.timezone" (ngModelChange)="onTimezoneChange()">
+              <option value="" disabled selected>Select your time zone *</option>
+              <option *ngFor="let tz of usTimezones" [value]="tz.abbr">{{ tz.label }}</option>
+            </select>
+          </div>
+
+          <!-- Preferred Time -->
           <div class="bm-field">
             <select class="bm-select" [(ngModel)]="bookingForm.time">
               <option value="" disabled selected>Select a preferred time *</option>
-              <option>09:00 AM</option>
-              <option>10:00 AM</option>
-              <option>11:00 AM</option>
-              <option>12:00 PM</option>
-              <option>01:00 PM</option>
-              <option>02:00 PM</option>
-              <option>03:00 PM</option>
-              <option>04:00 PM</option>
-              <option>05:00 PM</option>
+              <option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</option>
             </select>
           </div>
 
