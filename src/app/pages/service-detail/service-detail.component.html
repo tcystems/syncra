@@ -80,6 +80,17 @@
         </div>
         <div class="product-tagline">
           <h4>{{ product.tagline }}</h4>
+          <div class="product-actions" *ngIf="product.buttons && product.buttons.length > 0">
+            <div class="buttons-container">
+              <a *ngFor="let btn of product.buttons" [href]="btn.link" [class]="'btn ' + btn.type" [target]="btn.external ? '_blank' : '_self'">
+                {{ btn.label }}
+                <svg *ngIf="btn.external" class="external-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

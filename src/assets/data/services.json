@@ -206,21 +206,54 @@
         "logo": "assets/images/services-pgs/L1.png",
         "subtitle": "Workers' Compensation & Private Medical Billing",
         "description": "Syncra's virtual assistants operate Claude MD as the operational backbone of our Workers' Compensation and private medical billing services. From charge entry and electronic claims submission through to EDI rejections, payment posting, and collections follow-up — every step of the billing cycle is managed with precision inside a system purpose-built for the complexity of US healthcare billing. For our clients, this means fewer denials, faster reimbursements, and a revenue cycle that runs without guess.",
-        "tagline": "The billing platform behind every clean claim and collected dollar."
+        "tagline": "The billing platform behind every clean claim and collected dollar.",
+        "buttons": [
+          {
+            "label": "Book a Demo",
+            "type": "primary",
+            "link": "#"
+          }
+        ]
       },
       {
         "name": "Cyclone RCM",
         "logo": "assets/images/services-pgs/L2.png",
         "subtitle": "Copy Services & Interpreter Billing",
         "description": "Cyclone RCM powers Syncra's copy service and interpreter billing operations, giving our specialists the tools to manage subpoena processing, record retrieval tracking, order creation, and interpreter invoice management within a single, structured system. In California Workers' Compensation, where documentation deadlines are non-negotiable and billing errors carry direct financial consequences, Cyclone RCM ensures nothing is missed, nothing is late, and every billable event is captured and followed through to payment.",
-        "tagline": "Purpose-built for copy services and the billing complexity that comes with it."
+        "tagline": "Purpose-built for copy services and the billing complexity that comes with it.",
+        "buttons": [
+          {
+            "label": "Visit site",
+            "type": "secondary",
+            "link": "#",
+            "external": true
+          },
+          {
+            "label": "Book a Demo",
+            "type": "primary",
+            "link": "#"
+          }
+        ]
       },
       {
         "name": "Sumxio",
         "logo": "assets/images/services-pgs/L3.png",
         "subtitle": "Document Summarization",
         "description": "Sumxio is the platform Syncra's specialists use to deliver accurate, structured medical record summaries for workers' compensation and legal clients. What would take an in-house team hours of manual review is turned around with speed and precision, producing clear, organized summaries that give attorneys, adjusters, and case managers exactly the information they need, without the noise. It's document management done at a standard that protects case outcomes and keeps every stakeholder fully informed.",
-        "tagline": "Medical record complexity, distilled into clarity your team can act on."
+        "tagline": "Medical record complexity, distilled into clarity your team can act on.",
+        "buttons": [
+          {
+            "label": "Visit site",
+            "type": "secondary",
+            "link": "#",
+            "external": true
+          },
+          {
+            "label": "Book a Demo",
+            "type": "primary",
+            "link": "#"
+          }
+        ]
       }
     ]
   },
