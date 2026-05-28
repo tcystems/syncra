@@ -396,3 +396,314 @@
     color: #0b0b0b;
   }
 }
+
+/* ── Booking Modal ────────────────────────────────────────────── */
+.booking-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.25s ease-out;
+}
+
+.booking-modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 880px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+/* Header */
+.bm-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 28px 32px 20px;
+  gap: 16px;
+}
+
+.bm-header-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.bm-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(129, 0, 127, 0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.bm-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 4px;
+}
+
+.bm-subtitle {
+  font-size: 0.88rem;
+  color: #888;
+  margin: 0;
+}
+
+.bm-divider {
+  border: none;
+  border-top: 1px solid #efefef;
+  margin: 0;
+}
+
+/* Body */
+.bm-body {
+  display: flex;
+  gap: 0;
+
+  @media (max-width: 680px) {
+    flex-direction: column;
+  }
+}
+
+/* ── Calendar (left panel) ── */
+.bm-calendar {
+  flex: 0 0 300px;
+  padding: 24px 28px 28px;
+  border-right: 1px solid #efefef;
+
+  @media (max-width: 680px) {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid #efefef;
+  }
+}
+
+.cal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cal-month-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.cal-nav-btn {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: border-color 0.2s, color 0.2s;
+
+  &:hover {
+    border-color: #81007F;
+    color: #81007F;
+  }
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cal-day-name {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #999;
+  padding: 6px 0;
+  text-transform: uppercase;
+}
+
+.cal-day {
+  text-align: center;
+  padding: 7px 4px;
+  font-size: 0.82rem;
+  color: #333;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover:not(.empty) {
+    background: rgba(129, 0, 127, 0.1);
+    color: #81007F;
+  }
+
+  &.empty {
+    cursor: default;
+    color: #ccc;
+  }
+
+  &.today {
+    font-weight: 700;
+    color: #81007F;
+  }
+
+  &.selected {
+    background: #81007F;
+    color: #fff;
+    font-weight: 700;
+
+    &:hover {
+      background: #6b006a;
+      color: #fff;
+    }
+  }
+}
+
+/* ── Form (right panel) ── */
+.bm-form {
+  flex: 1;
+  padding: 24px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Service tag row — read-only, shows which product the demo is for */
+.bm-service-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 14px;
+  border-bottom: 1px solid #e0e0e0 !important;
+  margin-bottom: 4px;
+
+  .bm-service-label {
+    font-size: 0.82rem;
+    color: #aaa;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .bm-service-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #81007F;
+    background: rgba(129, 0, 127, 0.07);
+    border-radius: 20px;
+    padding: 3px 14px;
+  }
+}
+
+.bm-field {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 4px;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.bm-select,
+.bm-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: #555;
+  padding: 14px 4px 14px 0;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  &::placeholder {
+    color: #aaa;
+  }
+
+  &:focus {
+    color: #111;
+  }
+}
+
+.bm-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  padding-right: 24px;
+}
+
+.bm-submit-btn {
+  margin-top: 20px;
+  width: 100%;
+  background: #81007F;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(129, 0, 127, 0.35);
+  letter-spacing: 0.02em;
+
+  &:hover {
+    background: #6b006a;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(129, 0, 127, 0.5);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* Close button */
+.btn-close-modal {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #aaa;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  border-radius: 50%;
+  transition: color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+
+  &:hover {
+    color: #333;
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+

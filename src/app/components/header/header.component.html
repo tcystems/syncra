@@ -12,7 +12,7 @@
         <li class="dropdown" [class.open]="servicesDropdownOpen" (click)="$event.stopPropagation()">
           <a href="#" (click)="toggleServicesDropdown($event)">Services <span class="arrow" [class.rotated]="servicesDropdownOpen">▼</span></a>
           <div class="dropdown-menu" *ngIf="servicesDropdownOpen">
-            <a routerLink="/services/emc-billing" (click)="servicesDropdownOpen = false">Copy Service Billing &amp; Revenue</a>
+            <a routerLink="/services/emc-billing" (click)="servicesDropdownOpen = false">Records Retrieval, Billing &amp; Revenue</a>
             <a routerLink="/services/healthcare-rcm" (click)="servicesDropdownOpen = false">Healthcare RCM</a>
             <a routerLink="/services/administrative-support" (click)="servicesDropdownOpen = false">Administrative Support</a>
             <a routerLink="/services/finance-solutions" (click)="servicesDropdownOpen = false">Finance Solutions</a>
@@ -49,7 +49,7 @@
             Services <span class="arrow" [class.rotated]="servicesDropdownOpen">▼</span>
           </div>
           <div class="mobile-dropdown-menu" [class.open]="servicesDropdownOpen">
-            <a routerLink="/services/emc-billing" (click)="mobileMenuOpen = false; servicesDropdownOpen = false">Copy Service Billing &amp; Revenue</a>
+            <a routerLink="/services/emc-billing" (click)="mobileMenuOpen = false; servicesDropdownOpen = false">Records Retrieval, Billing &amp; Revenue</a>
             <a routerLink="/services/healthcare-rcm" (click)="mobileMenuOpen = false; servicesDropdownOpen = false">Healthcare RCM</a>
             <a routerLink="/services/administrative-support" (click)="mobileMenuOpen = false; servicesDropdownOpen = false">Administrative Support</a>
             <a routerLink="/services/finance-solutions" (click)="mobileMenuOpen = false; servicesDropdownOpen = false">Finance Solutions</a>

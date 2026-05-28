@@ -82,13 +82,27 @@
           <h4>{{ product.tagline }}</h4>
           <div class="product-actions" *ngIf="product.buttons && product.buttons.length > 0">
             <div class="buttons-container">
-              <a *ngFor="let btn of product.buttons" [href]="btn.link" [class]="'btn ' + btn.type" [target]="btn.external ? '_blank' : '_self'">
-                {{ btn.label }}
-                <svg *ngIf="btn.external" class="external-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </a>
+              <ng-container *ngFor="let btn of product.buttons">
+                <!-- Book a Demo buttons open the modal -->
+                <button
+                  *ngIf="btn.label === 'Book a Demo'"
+                  [class]="'btn ' + btn.type"
+                  (click)="openDemoModal(product.name)">
+                  {{ btn.label }}
+                </button>
+                <!-- Other buttons (e.g. Visit site) remain as links -->
+                <a
+                  *ngIf="btn.label !== 'Book a Demo'"
+                  [href]="btn.link"
+                  [class]="'btn ' + btn.type"
+                  [target]="btn.external ? '_blank' : '_self'">
+                  {{ btn.label }}
+                  <svg *ngIf="btn.external" class="external-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+              </ng-container>
             </div>
           </div>
         </div>
@@ -111,5 +125,99 @@
     <h2>Service not found</h2>
     <p>We couldn't find the service you were looking for.</p>
     <button routerLink="/" class="back-btn">← Back to Home</button>
+  </div>
+</div>
+
+<!-- Booking Modal Overlay -->
+<div class="booking-modal-overlay" *ngIf="showBookingModal" (click)="closeBookingModal()">
+  <div class="booking-modal-card" (click)="$event.stopPropagation()">
+
+    <!-- Modal Header -->
+    <div class="bm-header">
+      <div class="bm-header-left">
+        <div class="bm-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+            stroke="#81007F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </div>
+        <div>
+          <h3 class="bm-title">Book a Demo — {{ bookingForm.service }}</h3>
+          <p class="bm-subtitle">Select a date and time to connect with our team.</p>
+        </div>
+      </div>
+      <button class="btn-close-modal" (click)="closeBookingModal()" aria-label="Close">&#x2715;</button>
+    </div>
+
+    <hr class="bm-divider">
+
+    <!-- Modal Body: Calendar + Form -->
+    <div class="bm-body">
+
+      <!-- Left: Calendar -->
+      <div class="bm-calendar">
+        <div class="cal-nav">
+          <button class="cal-nav-btn" (click)="prevMonth()">&#8249;</button>
+          <span class="cal-month-label">{{ currentMonthLabel }}</span>
+          <button class="cal-nav-btn" (click)="nextMonth()">&#8250;</button>
+        </div>
+
+        <div class="cal-grid">
+          <div class="cal-day-name" *ngFor="let d of dayNames">{{ d }}</div>
+          <div
+            *ngFor="let cell of calendarCells"
+            class="cal-day"
+            [class.empty]="!cell.day"
+            [class.selected]="cell.day === selectedDay"
+            [class.today]="cell.isToday"
+            (click)="cell.day && selectDay(cell.day)"
+          >{{ cell.day || '' }}</div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="bm-form">
+
+        <!-- Pre-filled product/service (read-only display) -->
+        <div class="bm-field bm-service-tag">
+          <span class="bm-service-label">Booking demo for:</span>
+          <span class="bm-service-name">{{ bookingForm.service }}</span>
+        </div>
+
+        <!-- Timezone -->
+        <div class="bm-field">
+          <select class="bm-select" [(ngModel)]="bookingForm.timezone" (ngModelChange)="onTimezoneChange()">
+            <option value="" disabled selected>Select your time zone *</option>
+            <option *ngFor="let tz of usTimezones" [value]="tz.abbr">{{ tz.label }}</option>
+          </select>
+        </div>
+
+        <!-- Preferred Time -->
+        <div class="bm-field">
+          <select class="bm-select" [(ngModel)]="bookingForm.time">
+            <option value="" disabled selected>Select a preferred time *</option>
+            <option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</option>
+          </select>
+        </div>
+
+        <div class="bm-field">
+          <input class="bm-input" type="text" placeholder="Company Name" [(ngModel)]="bookingForm.company">
+        </div>
+
+        <div class="bm-field">
+          <input class="bm-input" type="email" placeholder="Work Email *" [(ngModel)]="bookingForm.email">
+        </div>
+
+        <div class="bm-field">
+          <input class="bm-input" type="tel" placeholder="Phone Number (Optional)" [(ngModel)]="bookingForm.phone">
+        </div>
+
+        <button class="bm-submit-btn" (click)="submitBooking()">Book My Demo</button>
+      </div>
+
+    </div>
   </div>
 </div>
