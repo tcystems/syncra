@@ -61,11 +61,54 @@ export class HomeComponent implements OnInit {
   bookingForm = {
     timezone: '',
     time: '',
-    service: '',
+    services: [] as string[],
     company: '',
     email: '',
     phone: ''
   };
+
+  // ── Services multi-select ────────────────────────────────────────
+  servicesDropdownOpen = false;
+  serviceOptions = [
+    'Records Retrieval, Billing & Revenue Management',
+    'Healthcare Revenue Cycle Management',
+    'Technology & Software Solutions',
+    'Administrative Support',
+    'Finance Solutions',
+    'Digital Marketing Solutions',
+    'Legal Process Outsourcing'
+  ];
+
+  toggleServicesDropdown(): void {
+    this.servicesDropdownOpen = !this.servicesDropdownOpen;
+  }
+
+  closeServicesDropdown(): void {
+    this.servicesDropdownOpen = false;
+  }
+
+  toggleService(option: string): void {
+    const idx = this.bookingForm.services.indexOf(option);
+    if (idx > -1) {
+      this.bookingForm.services.splice(idx, 1);
+    } else {
+      this.bookingForm.services.push(option);
+    }
+  }
+
+  isServiceSelected(option: string): boolean {
+    return this.bookingForm.services.includes(option);
+  }
+
+  getServicesLabel(): string {
+    if (this.bookingForm.services.length === 0) {
+      return 'What type of service are you looking for?';
+    }
+    if (this.bookingForm.services.length === 1) {
+      return this.bookingForm.services[0];
+    }
+    return `${this.bookingForm.services.length} services selected`;
+  }
 
   // ── FAQs ────────────────────────────────────────────────────────
   faqs = [
@@ -173,6 +216,7 @@ export class HomeComponent implements OnInit {
         : 'No date selected',
       ...this.bookingForm
     });
+    this.servicesDropdownOpen = false;
     this.closeBookingModal();
   }
 }

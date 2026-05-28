@@ -309,17 +309,39 @@
             </select>
           </div>
 
-          <div class="bm-field">
-            <select class="bm-select" [(ngModel)]="bookingForm.service">
-              <option value="" disabled selected>What type of service are you looking for?</option>
-              <option>Records Retrieval, Billing &amp; Revenue Management</option>
-              <option>Healthcare Revenue Cycle Management</option>
-              <option>Technology &amp; Software Solutions</option>
-              <option>Administrative Support</option>
-              <option>Finance Solutions</option>
-              <option>Digital Marketing Solutions</option>
-              <option>Legal Process Outsourcing</option>
-            </select>
+          <!-- Multi-select Services Dropdown -->
+          <div class="bm-field bm-field--services">
+            <div class="bm-multiselect" [class.open]="servicesDropdownOpen">
+              <!-- Trigger -->
+              <button
+                type="button"
+                class="bm-multiselect-trigger"
+                (click)="toggleServicesDropdown()"
+                [class.has-value]="bookingForm.services.length > 0"
+              >
+                <span class="bm-multiselect-label">{{ getServicesLabel() }}</span>
+                <svg class="bm-multiselect-arrow" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8">
+                  <path d="M1 1l5 5 5-5" stroke="#999" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <!-- Dropdown Panel -->
+              <div class="bm-multiselect-panel" *ngIf="servicesDropdownOpen">
+                <label
+                  class="bm-multiselect-option"
+                  *ngFor="let option of serviceOptions"
+                  (click)="toggleService(option)"
+                >
+                  <span class="bm-checkbox" [class.checked]="isServiceSelected(option)">
+                    <svg *ngIf="isServiceSelected(option)" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8">
+                      <path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="bm-option-text">{{ option }}</span>
+                </label>
+              </div>
+              <!-- Click-outside backdrop -->
+              <div class="bm-multiselect-backdrop" *ngIf="servicesDropdownOpen" (click)="closeServicesDropdown()"></div>
+            </div>
           </div>
 
           <div class="bm-field">
