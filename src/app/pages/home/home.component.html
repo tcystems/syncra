@@ -285,7 +285,8 @@
               [class.empty]="!cell.day"
               [class.selected]="cell.day === selectedDay"
               [class.today]="cell.isToday"
-              (click)="cell.day && selectDay(cell.day)"
+              [class.past]="cell.day && isPastDay(cell.day)"
+              (click)="cell.day && !isPastDay(cell.day) && selectDay(cell.day)"
             >{{ cell.day || '' }}</div>
           </div>
         </div>
@@ -303,9 +304,15 @@
 
           <!-- Preferred Time -->
           <div class="bm-field">
-            <select class="bm-select" [(ngModel)]="bookingForm.time">
-              <option value="" disabled selected>Select a preferred time *</option>
-              <option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</option>
+            <select class="bm-select" [(ngModel)]="bookingForm.time" [disabled]="isLoadingSlots">
+              <option value="" disabled selected>
+                {{ isLoadingSlots ? 'Loading availability…' : 'Select a preferred time *' }}
+              </option>
+              <option
+                *ngFor="let slot of timeSlots"
+                [value]="slot"
+                [disabled]="isSlotBooked(slot)"
+              >{{ slot }}{{ isSlotBooked(slot) ? ' — Booked' : '' }}</option>
             </select>
           </div>
 
@@ -356,7 +363,27 @@
             <input class="bm-input" type="tel" placeholder="Phone Number (Optional)" [(ngModel)]="bookingForm.phone">
           </div>
 
-          <button class="bm-submit-btn" (click)="submitBooking()">Book My Demo</button>
+          <button
+            class="bm-submit-btn"
+            (click)="submitBooking()"
+            [disabled]="isSubmitting || submitSuccess"
+            [class.bm-btn--loading]="isSubmitting"
+            [class.bm-btn--success]="submitSuccess"
+          >
+            <span *ngIf="!isSubmitting && !submitSuccess">Book My Demo</span>
+            <span *ngIf="isSubmitting" class="bm-btn-spinner"></span>
+            <span *ngIf="isSubmitting">&nbsp;Sending…</span>
+            <span *ngIf="submitSuccess">✓&nbsp;Booked! We'll be in touch.</span>
+          </button>
+
+          <!-- Validation error -->
+          <p class="bm-error" *ngIf="submitError">&#9888; {{ submitError }}</p>
+
+          <!-- Success message -->
+          <p class="bm-success" *ngIf="submitSuccess">
+            Your demo has been scheduled! Check your email for confirmation.
+            This window will close automatically.
+          </p>
         </div>
 
       </div>

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ContactComponent } from '../../components/contact/contact.component';
+import { BookingService } from '../../services/booking.service';
 
 interface CalendarCell {
   day: number | null;
@@ -44,16 +45,16 @@ export class ServiceDetailComponent implements OnInit {
     { abbr: 'HT',  label: 'Hawaii Time (HT)   — UTC−10'      },
   ];
 
-  private readonly rawSlots = [
-    '9:00 AM – 10:00 AM',
-    '10:00 AM – 11:00 AM',
-    '11:00 AM – 12:00 PM',
-    '12:00 PM – 1:00 PM',
-    '1:00 PM – 2:00 PM',
-    '2:00 PM – 3:00 PM',
-    '3:00 PM – 4:00 PM',
-    '4:00 PM – 5:00 PM',
-    '5:00 PM – 6:00 PM',
+  readonly rawSlots = [
+    '9:00 AM \u2013 10:00 AM',
+    '10:00 AM \u2013 11:00 AM',
+    '11:00 AM \u2013 12:00 PM',
+    '12:00 PM \u2013 1:00 PM',
+    '1:00 PM \u2013 2:00 PM',
+    '2:00 PM \u2013 3:00 PM',
+    '3:00 PM \u2013 4:00 PM',
+    '4:00 PM \u2013 5:00 PM',
+    '5:00 PM \u2013 6:00 PM',
   ];
 
   timeSlots: string[] = this.rawSlots;
@@ -61,24 +62,32 @@ export class ServiceDetailComponent implements OnInit {
   bookingForm = {
     timezone: '',
     time: '',
-    service: '',
+    service: '',   // pre-filled with product name, e.g. 'Claude MD'
     company: '',
     email: '',
     phone: ''
   };
 
+  // ── Slot blocking state ──────────────────────────────────────────
+  bookedSlots: string[] = [];
+  isLoadingSlots = false;
+
+  // ── Submission state ─────────────────────────────────────────────
+  isSubmitting  = false;
+  submitSuccess = false;
+  submitError   = '';
+
   constructor(
     private route: ActivatedRoute,
-    private http: HttpClient
+    private http: HttpClient,
+    private bookingService: BookingService
   ) {}
 
   ngOnInit(): void {
     this.buildCalendar();
     this.route.paramMap.subscribe(params => {
       const slug = params.get('slug');
-      if (slug) {
-        this.loadServiceData(slug);
-      }
+      if (slug) this.loadServiceData(slug);
     });
   }
 
@@ -88,16 +97,16 @@ export class ServiceDetailComponent implements OnInit {
         const found = services.find(s => s.slug === slug);
         if (found) {
           this.service = found;
-          this.error = false;
+          this.error   = false;
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-          this.error = true;
+          this.error   = true;
           this.service = null;
         }
       },
       error: (err) => {
         console.error('Error loading service data:', err);
-        this.error = true;
+        this.error   = true;
         this.service = null;
       }
     });
@@ -107,18 +116,16 @@ export class ServiceDetailComponent implements OnInit {
   openDemoModal(productName: string): void {
     const today = new Date();
     this.calendarDate = new Date(today.getFullYear(), today.getMonth(), 1);
-    this.selectedDay = today.getDate();
+    this.selectedDay  = today.getDate();
     this.buildCalendar();
-    // Reset form but pre-fill the service with the product name
-    this.bookingForm = {
-      timezone: '',
-      time: '',
-      service: productName,
-      company: '',
-      email: '',
-      phone: ''
-    };
-    this.timeSlots = this.rawSlots;
+    
+    this.bookingForm  = { timezone: '', time: '', service: productName, company: '', email: '', phone: '' };
+    this.timeSlots    = this.rawSlots;
+    this.isSubmitting  = false;
+    this.submitSuccess = false;
+    this.submitError   = '';
+    this.bookedSlots   = [];
+
     this.showBookingModal = true;
     document.body.style.overflow = 'hidden';
   }
@@ -134,63 +141,135 @@ export class ServiceDetailComponent implements OnInit {
       ? this.rawSlots.map(slot => `${slot} ${tz}`)
       : this.rawSlots;
     this.bookingForm.time = '';
+    if (this.selectedDay && tz) {
+      this.fetchBookedSlots();
+    }
   }
 
+  // ── Calendar ────────────────────────────────────────────────────
   buildCalendar(): void {
-    const year = this.calendarDate.getFullYear();
+    const year  = this.calendarDate.getFullYear();
     const month = this.calendarDate.getMonth();
     const today = new Date();
 
     this.currentMonthLabel = this.calendarDate.toLocaleString('default', { month: 'long', year: 'numeric' });
 
-    const firstDay = new Date(year, month, 1).getDay();
+    const firstDay    = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
-
     const cells: CalendarCell[] = [];
+
     for (let i = 0; i < firstDay; i++) {
       cells.push({ day: null, isToday: false });
     }
     for (let d = 1; d <= daysInMonth; d++) {
-      const isToday =
-        d === today.getDate() &&
-        month === today.getMonth() &&
-        year === today.getFullYear();
+      const isToday = d === today.getDate() && month === today.getMonth() && year === today.getFullYear();
       cells.push({ day: d, isToday });
     }
     this.calendarCells = cells;
   }
 
   prevMonth(): void {
-    this.calendarDate = new Date(
-      this.calendarDate.getFullYear(),
-      this.calendarDate.getMonth() - 1,
-      1
-    );
-    this.selectedDay = null;
+    this.calendarDate = new Date(this.calendarDate.getFullYear(), this.calendarDate.getMonth() - 1, 1);
+    this.selectedDay  = null;
+    this.bookedSlots  = [];
     this.buildCalendar();
   }
 
   nextMonth(): void {
-    this.calendarDate = new Date(
-      this.calendarDate.getFullYear(),
-      this.calendarDate.getMonth() + 1,
-      1
-    );
-    this.selectedDay = null;
+    this.calendarDate = new Date(this.calendarDate.getFullYear(), this.calendarDate.getMonth() + 1, 1);
+    this.selectedDay  = null;
+    this.bookedSlots  = [];
     this.buildCalendar();
   }
 
   selectDay(day: number): void {
+    if (this.isPastDay(day)) return;
     this.selectedDay = day;
+    this.bookingForm.time = '';
+    this.fetchBookedSlots();
   }
 
-  submitBooking(): void {
-    console.log('Demo booking submitted:', {
-      date: this.selectedDay
-        ? `${this.calendarDate.toLocaleString('default', { month: 'long' })} ${this.selectedDay}, ${this.calendarDate.getFullYear()}`
-        : 'No date selected',
-      ...this.bookingForm
+  // ── Helper: is a calendar day in the past? ───────────────────────
+  isPastDay(day: number): boolean {
+    const today    = new Date();
+    today.setHours(0, 0, 0, 0);
+    const cellDate = new Date(this.calendarDate.getFullYear(), this.calendarDate.getMonth(), day);
+    return cellDate < today;
+  }
+
+  // ── Helper: is a time slot already booked? ───────────────────────
+  isSlotBooked(formattedSlot: string): boolean {
+    const raw = this.rawSlots.find(r => formattedSlot.startsWith(r));
+    return raw ? this.bookedSlots.includes(raw) : false;
+  }
+
+  // ── Helper: YYYY-MM-DD string ────────────────────────────────────
+  getFormattedDate(): string {
+    if (!this.selectedDay) return '';
+    const y = this.calendarDate.getFullYear();
+    const m = String(this.calendarDate.getMonth() + 1).padStart(2, '0');
+    const d = String(this.selectedDay).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }
+
+  // ── Fetch booked slots for the selected date ─────────────────────
+  private fetchBookedSlots(): void {
+    const dateStr = this.getFormattedDate();
+    const tz = this.bookingForm.timezone;
+    if (!dateStr || !tz) return;
+    this.isLoadingSlots = true;
+    this.bookedSlots    = [];
+    this.bookingService.getBookedSlots(dateStr, tz).subscribe({
+      next:  (res) => { this.bookedSlots = res.bookedSlots || []; this.isLoadingSlots = false; },
+      error: ()    => { this.bookedSlots = [];                    this.isLoadingSlots = false; }
     });
-    this.closeBookingModal();
+  }
+
+  // ── Submit ──────────────────────────────────────────────────────
+  submitBooking(): void {
+    this.submitError = '';
+
+    if (!this.selectedDay) {
+      this.submitError = 'Please select a date on the calendar.'; return;
+    }
+    if (!this.bookingForm.timezone) {
+      this.submitError = 'Please select your time zone.'; return;
+    }
+    if (!this.bookingForm.time) {
+      this.submitError = 'Please select a preferred time slot.'; return;
+    }
+    if (!this.bookingForm.email || !this.bookingForm.email.includes('@')) {
+      this.submitError = 'Please enter a valid work email address.'; return;
+    }
+
+    const rawSlot = this.rawSlots.find(r => this.bookingForm.time.startsWith(r)) || this.bookingForm.time;
+
+    this.isSubmitting = true;
+    this.bookingService.submitBooking({
+      formName: this.bookingForm.service,  // 'Claude MD', 'Cyclone RCM', 'Sumxio'
+      date:     this.getFormattedDate(),
+      timezone: this.bookingForm.timezone,
+      timeSlot: rawSlot,
+      services: this.bookingForm.service,
+      company:  this.bookingForm.company,
+      email:    this.bookingForm.email,
+      phone:    this.bookingForm.phone
+    }).subscribe({
+      next: () => {
+        this.isSubmitting  = false;
+        this.submitSuccess = true;
+        // Optimistically mark slot as booked immediately
+        if (!this.bookedSlots.includes(rawSlot)) {
+          this.bookedSlots.push(rawSlot);
+        }
+        setTimeout(() => {
+          this.closeBookingModal();
+        }, 3000);
+      },
+      error: () => {
+        this.isSubmitting = false;
+        this.submitError  = 'Something went wrong. Please check your connection and try again.';
+      }
+    });
   }
 }

@@ -666,15 +666,33 @@
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 14px rgba(129, 0, 127, 0.35);
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: #6b006a;
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba(129, 0, 127, 0.5);
   }
 
-  &:active {
+  &:active:not(:disabled) {
     transform: translateY(0);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.85;
+  }
+
+  &.bm-btn--loading {
+    background: #9a3098;
+  }
+
+  &.bm-btn--success {
+    background: #1a8a3a;
+    box-shadow: 0 4px 14px rgba(26, 138, 58, 0.35);
   }
 }
 
@@ -707,3 +725,48 @@
   to   { transform: translateY(0);    opacity: 1; }
 }
 
+/* Submit button spinner */
+.bm-btn-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: btnSpin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes btnSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Validation error message */
+.bm-error {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  color: #c0392b;
+  line-height: 1.4;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Success message */
+.bm-success {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  color: #1a8a3a;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Past calendar days — greyed out, not clickable */
+.cal-day.past {
+  color: #d0d0d0;
+  cursor: default;
+  pointer-events: none;
+}
