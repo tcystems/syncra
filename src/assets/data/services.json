@@ -225,7 +225,7 @@
           {
             "label": "Visit site",
             "type": "secondary",
-            "link": "#",
+            "link": "https://cyclonercm.com/",
             "external": true
           },
           {
@@ -245,7 +245,7 @@
           {
             "label": "Visit site",
             "type": "secondary",
-            "link": "#",
+            "link": "https://sumxio.com/",
             "external": true
           },
           {
@@ -296,7 +296,7 @@
   },
   {
     "slug": "legal-process-outsourcing",
-    "title": "Legal Process Outsourcing (LPO)",
+    "title": "Legal Process Outsourcing",
     "description": "Our Virtual Legal Assistants specialise in the meticulous back-office tasks that bog down US law firms, particularly in personal injury and Workers' Compensation cases.",
     "listHeading": "Services Include:",
     "groups": [
