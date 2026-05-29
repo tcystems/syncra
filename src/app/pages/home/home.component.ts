@@ -95,6 +95,13 @@ export class HomeComponent implements OnInit {
     this.buildCalendar();
   }
 
+  scrollToElement(id: string): void {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   // ── FAQ ─────────────────────────────────────────────────────────
   faqs = [
     { question: 'What services does Syncra offer?', answer: 'Syncra provides RCM & Copy Services, Legal Process Outsourcing, Administrative, Finance, and IT Services tailored to your workflow priorities.' },

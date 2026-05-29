@@ -12,8 +12,8 @@
       <div class="hero-content">
         <h1 class="hero-title">Precision support.<br><span class="highlight-text">Built for growth.</span></h1>
         <div class="hero-actions">
-          <button class="btn btn-primary">Get in Touch</button>
-          <button class="btn btn-outline">Explore Our Services</button>
+          <button class="btn btn-primary" (click)="scrollToElement('contact')">Get in Touch</button>
+          <button class="btn btn-outline" (click)="scrollToElement('services')">Explore Our Services</button>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
         <h2>An experienced partner you can trust.<br><span class="highlight-text">A service you can count on.</span></h2>
         <p>Syncra provides tailored support solutions for US healthcare clinics and law firms. We build dedicated teams based on your workflow priorities, and service standards, so you get the right support from day one.</p>
         <p>Our approach is simple: select the right people, align them with your processes, and deliver dependable support that helps your business operate more efficiently.</p>
-        <button class="btn btn-primary btn-icon">Discover →</button>
+        <button class="btn btn-primary btn-icon" routerLink="/about">Discover →</button>
       </div>
     </div>
   </section>
@@ -70,7 +70,7 @@
     </div>
   </section>
 
-  <section class="services-section">
+  <section id="services" class="services-section">
     <div class="container">
       <span class="section-badge">SERVICES</span>
       <h2>Precision Virtual Assistance Across<br><span class="highlight-text">Every Function.</span></h2>

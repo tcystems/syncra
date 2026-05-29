@@ -9,9 +9,56 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
+  servicesDropdownOpen = false;
+  selectedServices: string[] = [];
+
+  serviceOptions = [
+    { value: 'emc-billing', label: 'Records Retrieval, Billing & Revenue' },
+    { value: 'healthcare-rcm', label: 'Healthcare RCM' },
+    { value: 'administrative-support', label: 'Administrative Support' },
+    { value: 'finance-solutions', label: 'Finance Solutions' },
+    { value: 'tech-software', label: 'Tech & Software' },
+    { value: 'digital-marketing', label: 'Digital Marketing Solutions' },
+    { value: 'legal-process-outsourcing', label: 'Legal Process Outsourcing' }
+  ];
+
+  toggleServicesDropdown(): void {
+    this.servicesDropdownOpen = !this.servicesDropdownOpen;
+  }
+
+  closeServicesDropdown(): void {
+    this.servicesDropdownOpen = false;
+  }
+
+  toggleService(optionValue: string): void {
+    const idx = this.selectedServices.indexOf(optionValue);
+    if (idx > -1) {
+      this.selectedServices.splice(idx, 1);
+    } else {
+      this.selectedServices.push(optionValue);
+    }
+  }
+
+  isServiceSelected(optionValue: string): boolean {
+    return this.selectedServices.includes(optionValue);
+  }
+
+  getServicesLabel(): string {
+    if (this.selectedServices.length === 0) return 'What type of service are you looking for?';
+    if (this.selectedServices.length === 1) {
+      return this.serviceOptions.find(o => o.value === this.selectedServices[0])?.label || '';
+    }
+    return `${this.selectedServices.length} services selected`;
+  }
+
   onSubmit(event: Event) {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
+
+    if (this.selectedServices.length === 0) {
+      alert('Please select at least one service.');
+      return;
+    }
 
     // Validate form inputs
     if (!form.checkValidity()) {
@@ -19,8 +66,7 @@ export class ContactComponent {
       return;
     }
 
-    const selectElement = form.querySelector('select') as HTMLSelectElement;
-    const selectedValue = selectElement ? selectElement.value : '';
+    const selectedValue = this.selectedServices[0];
 
     // Map selection or page path to GTM service name value
     let serviceName = 'general';
@@ -65,6 +111,7 @@ export class ContactComponent {
 
     // Reset the form and show success message
     form.reset();
+    this.selectedServices = [];
     alert('Thank you for your message! We will get back to you shortly.');
   }
 }

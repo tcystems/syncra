@@ -17,20 +17,31 @@
         <div class="form-group">
           <input type="tel" placeholder="Phone Number (Optional)">
         </div>
-        <div class="form-group select-group">
-          <select required>
-            <option value="" disabled selected hidden>What type of service are you looking for?</option>
-            <option value="emc-billing">Records Retrieval, Billing &amp; Revenue</option>
-            <option value="healthcare-rcm">Healthcare RCM</option>
-            <option value="administrative-support">Administrative Support</option>
-            <option value="finance-solutions">Finance Solutions</option>
-            <option value="tech-software">Tech &amp; Software</option>
-            <option value="digital-marketing">Digital Marketing Solutions</option>
-            <option value="legal-process-outsourcing">Legal Process Outsourcing</option>
-          </select>
-          <span class="select-arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </span>
+        <div class="form-group custom-select-wrapper">
+          <div class="custom-multiselect" [class.open]="servicesDropdownOpen">
+            <button
+              type="button"
+              class="custom-multiselect-trigger"
+              (click)="toggleServicesDropdown()"
+              [class.has-value]="selectedServices.length > 0"
+            >
+              <span class="custom-multiselect-label">{{ getServicesLabel() }}</span>
+              <svg class="custom-multiselect-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="custom-multiselect-panel" *ngIf="servicesDropdownOpen">
+              <label class="custom-multiselect-option" *ngFor="let option of serviceOptions" (click)="toggleService(option.value); $event.preventDefault()">
+                <span class="custom-checkbox" [class.checked]="isServiceSelected(option.value)">
+                  <svg *ngIf="isServiceSelected(option.value)" xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8">
+                    <path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="custom-option-text">{{ option.label }}</span>
+              </label>
+            </div>
+            <div class="custom-multiselect-backdrop" *ngIf="servicesDropdownOpen" (click)="closeServicesDropdown()"></div>
+          </div>
         </div>
         <div class="form-group">
           <textarea placeholder="Message *" required rows="3"></textarea>
