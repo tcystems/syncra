@@ -2,11 +2,17 @@
 <div class="home-page">
   <section class="hero-section">
     <!-- Autoplay looping background video -->
-    <video class="hero-bg-video" autoplay loop muted playsinline>
+    <video #heroVideo class="hero-bg-video" autoplay loop muted playsinline>
       <source src="assets/videos/Syncra.mp4" type="video/mp4">
     </video>
     <!-- Dark overlay so text stays legible -->
     <div class="hero-bg-overlay"></div>
+
+    <!-- Mute / Unmute toggle -->
+    <button class="hero-mute-btn" (click)="toggleMute()" [attr.aria-label]="isMuted ? 'Unmute video' : 'Mute video'">
+      <span *ngIf="isMuted">🔇</span>
+      <span *ngIf="!isMuted">🔊</span>
+    </button>
 
     <div class="hero-container">
       <div class="hero-content">

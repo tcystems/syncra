@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContactComponent } from '../../components/contact/contact.component';
@@ -22,9 +22,13 @@ interface UsTimezone {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   activeFaq: number | null = null;
   showBookingModal = false;
+  isMuted = true;
+
+  // ── Hero video reference ────────────────────────────────────────
+  @ViewChild('heroVideo') heroVideoRef!: ElementRef<HTMLVideoElement>;
 
   // ── Calendar ────────────────────────────────────────────────────
   dayNames = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
@@ -93,6 +97,26 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildCalendar();
+  }
+
+  ngAfterViewInit(): void {
+    // Angular strips the `muted` DOM property during template compilation.
+    // Setting it programmatically + calling play() fixes autoplay on first load.
+    const video = this.heroVideoRef?.nativeElement;
+    if (video) {
+      video.muted = true;
+      video.play().catch(() => {
+        // Autoplay still blocked (rare). Silently ignore.
+      });
+    }
+  }
+
+  toggleMute(): void {
+    const video = this.heroVideoRef?.nativeElement;
+    if (video) {
+      video.muted = !video.muted;
+      this.isMuted = video.muted;
+    }
   }
 
   scrollToElement(id: string): void {
