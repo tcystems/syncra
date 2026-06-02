@@ -65,7 +65,8 @@
   background-color: #0d0d0d; // fallback while video loads
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  padding-bottom: 12vh;
   overflow: hidden;
   position: relative; // needed for absolute video + overlay
 
@@ -101,7 +102,7 @@
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 40px;
     position: relative;
@@ -109,9 +110,10 @@
   }
 
   .hero-content {
-    flex: 1;
+    flex: unset;
     min-width: 280px;
-    padding: 80px 0 60px;
+    padding: 0;
+    text-align: center;
   }
 
   .hero-title {
@@ -125,7 +127,13 @@
 
   .hero-actions {
     display: flex;
-    gap: 16px;
+    gap: 12px;
+    justify-content: center;
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 0.88rem;
+    }
   }
 }
 
