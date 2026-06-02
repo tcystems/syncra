@@ -8,8 +8,7 @@ import { SoftwareDetailComponent } from './pages/software-detail/software-detail
 import { ServiceDetailComponent } from './pages/service-detail/service-detail.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'blogs', component: BlogsComponent },
   { path: 'blog/:slug', component: BlogDetailComponent },
