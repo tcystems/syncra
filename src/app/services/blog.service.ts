@@ -7,7 +7,7 @@ import { Observable, map } from 'rxjs';
 })
 export class BlogService {
 
-  private apiUrl = 'https://script.google.com/macros/s/AKfycbzgElJoB_iuLjLnJkSSNc2OXrL8F_YP1aJti0c8W0kmV4LQ-mfQ5ASzjpnIZL73Yt_OuQ/exec';
+  private apiUrl = 'https://script.google.com/macros/s/AKfycby5BnGcX_wJ3b2z_de7QU-zqRCJXGF6mbCNi1s_CruUZ8KwY--DPaLCyy3P_8TdfG_J/exec';
 
   constructor(private http: HttpClient) { }
 
