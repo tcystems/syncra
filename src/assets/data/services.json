@@ -218,9 +218,9 @@
       {
         "name": "Cyclone RCM",
         "logo": "assets/images/services-pgs/L2.png",
-        "subtitle": "Copy Services & Interpreter Billing",
-        "description": "Cyclone RCM powers Syncra's copy service and interpreter billing operations, giving our specialists the tools to manage subpoena processing, record retrieval tracking, order creation, and interpreter invoice management within a single, structured system. In California Workers' Compensation, where documentation deadlines are non-negotiable and billing errors carry direct financial consequences, Cyclone RCM ensures nothing is missed, nothing is late, and every billable event is captured and followed through to payment.",
-        "tagline": "Purpose-built for copy services and the billing complexity that comes with it.",
+        "subtitle": "Records Retrieval Services & Interpreter Billing",
+        "description": "Cyclone RCM powers Syncra's records retrieval service and interpreter billing operations, giving our specialists the tools to manage subpoena processing, record retrieval tracking, order creation, and interpreter invoice management within a single, structured system. In California Workers' Compensation, where documentation deadlines are non-negotiable and billing errors carry direct financial consequences, Cyclone RCM ensures nothing is missed, nothing is late, and every billable event is captured and followed through to payment.",
+        "tagline": "Purpose-built for records retrieval services and the billing complexity that comes with it.",
         "buttons": [
           {
             "label": "Visit site",
