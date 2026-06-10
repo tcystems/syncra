@@ -66,12 +66,7 @@ export class ContactComponent {
       return;
     }
 
-    const selectedValue = this.selectedServices[0];
-
-    // Map selection or page path to GTM service name value
-    let serviceName = 'general';
-    const path = window.location.pathname.toLowerCase();
-
+    // Map dropdown values to GTM service_name identifiers
     const serviceMap: { [key: string]: string } = {
       'emc-billing': 'copy_services',
       'healthcare-rcm': 'healthcare_rcm',
@@ -82,31 +77,31 @@ export class ContactComponent {
       'legal-process-outsourcing': 'legal_process_outsourcing'
     };
 
-    if (selectedValue && serviceMap[selectedValue]) {
-      serviceName = serviceMap[selectedValue];
-    } else if (path.includes('emc-billing')) {
-      serviceName = 'copy_services';
-    } else if (path.includes('healthcare-rcm')) {
-      serviceName = 'healthcare_rcm';
-    } else if (path.includes('administrative-support')) {
-      serviceName = 'administrative_support';
-    } else if (path.includes('finance-solutions')) {
-      serviceName = 'finance_solutions';
-    } else if (path.includes('tech-software')) {
-      serviceName = 'tech_software';
-    } else if (path.includes('digital-marketing')) {
-      serviceName = 'digital_marketing_solutions';
-    } else if (path.includes('legal-process-outsourcing')) {
-      serviceName = 'legal_process_outsourcing';
-    }
+    // Build the list of GTM service names for all selected services
+    const gtmServiceNames: string[] = this.selectedServices
+      .map(v => serviceMap[v] || v)
+      .filter(Boolean);
 
-    // Initialize dataLayer and push generate_lead event
+    // Comma-joined services string for the main GA4 lead event
+    const servicesJoined = gtmServiceNames.join(',');
+
+    // Initialize dataLayer
     (window as any).dataLayer = (window as any).dataLayer || [];
+
+    // 1. Main GA4 Lead Event — includes all selected services as a comma-joined string
     (window as any).dataLayer.push({
       event: 'generate_lead',
-      service_name: serviceName,
+      services: servicesJoined,
       form_name: 'service_inquiry',
       page_path: window.location.pathname
+    });
+
+    // 2. Service-Specific Lead Events — one push per selected service
+    gtmServiceNames.forEach((name: string) => {
+      (window as any).dataLayer.push({
+        event: 'service_lead',
+        service_name: name
+      });
     });
 
     // Reset the form and show success message
