@@ -316,6 +316,37 @@ export class HomeComponent implements OnInit, AfterViewInit {
       next: () => {
         this.isSubmitting = false;
         this.submitSuccess = true;
+
+        // ── GTM Lead Tracking ─────────────────────────────────────────
+        const serviceMap: { [key: string]: string } = {
+          'Records Retrieval, Billing & Revenue Management': 'rcm_billing_revenue',
+          'Healthcare Revenue Cycle Management':            'healthcare_rcm',
+          'Administrative Support':                        'administrative_support',
+          'Finance Solutions':                             'finance_solutions',
+          'Technology & Software Solutions':               'tech_software',
+          'Digital Marketing Solutions':                   'digital_marketing_solutions',
+          'Legal Process Outsourcing':                     'legal_process_outsourcing'
+        };
+        const gtmNames = this.bookingForm.services
+          .map((svc: string) => serviceMap[svc] || svc)
+          .filter(Boolean);
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        /* Main GA4 Lead Event */
+        (window as any).dataLayer.push({
+          event:     'generate_lead',
+          services:  gtmNames.join(','),
+          form_name: 'service_inquiry',
+          page_path: window.location.pathname
+        });
+        /* Service-Specific Lead Events — one per selected service */
+        gtmNames.forEach((name: string) => {
+          (window as any).dataLayer.push({
+            event:        'service_lead',
+            service_name: name
+          });
+        });
+        // ─────────────────────────────────────────────────────────────
+
         // Optimistically mark the slot as booked in the UI immediately
         if (!this.bookedSlots.includes(rawSlot)) {
           this.bookedSlots.push(rawSlot);
