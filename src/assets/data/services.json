@@ -84,14 +84,17 @@
     "whyTitle": "Why Syncra for Healthcare RCM?",
     "whyCards": [
       {
+        "icon": "assets/images/services-pgs/s2/s2-img1.png",
         "title": "Revenue-Focused Operations",
         "description": "Our specialists oversee every stage of the revenue cycle with precision — helping healthcare providers improve collections, reduce days, and optimize reimbursement outcomes."
       },
       {
+        "icon": "assets/images/services-pgs/s2/s2-img2.png",
         "title": "Compliance & Accuracy",
         "description": "We maintain strict quality control processes across claims submission, documentation review, and denial management to minimize errors and support clean claim performance."
       },
       {
+        "icon": "assets/images/services-pgs/s2/s2-img3.png",
         "title": "Scalable Operational Support",
         "description": "Whether supporting independent practices or growing healthcare organizations, our solutions scale alongside your business needs — providing reliable support without the overhead of expanding internal teams."
       }
@@ -120,14 +123,17 @@
     "whyTitle": "Why Syncra for Administrative Support?",
     "whyCards": [
       {
+        "icon": "assets/images/services-pgs/s3/s3-img1.png",
         "title": "Operational Efficiency",
         "description": "Delegating administrative tasks to Syncra allows your core team to focus entirely on business growth, client relationships, and high-value responsibilities — while we manage the operational details behind the scenes."
       },
       {
+        "icon": "assets/images/services-pgs/s3/s3-img2.png",
         "title": "Consistent, Long-Term Support",
         "description": "Our low-attrition roles ensure continuity and reliability, allowing your dedicated administrative assistant to develop a strong understanding of your workflows, preferences, and business operations over time."
       },
       {
+        "icon": "assets/images/services-pgs/s3/s3-img3.png",
         "title": "Cost-Effective Staffing Solutions",
         "description": "Access highly skilled, full-time administrative professionals at a fraction of the cost of local hiring — without compromising on responsiveness, professionalism, or quality of work."
       }
@@ -155,14 +161,17 @@
     "whyTitle": "Why Syncra for Finance Solutions?",
     "whyCards": [
       {
+        "icon": "assets/images/services-pgs/s4/s4-img1.png",
         "title": "World-Class Financial Expertise",
         "description": "Sri Lanka is home to one of the largest pools of ACCA and CIMA-qualified finance professionals outside the UK, giving your business access to globally recognized expertise at significantly lower operational costs."
       },
       {
+        "icon": "assets/images/services-pgs/s4/s4-img2.png",
         "title": "Informed Business Decisions",
         "description": "Through accurate reporting, detailed analysis, and investment research, our specialists provide the financial clarity leadership teams need to make confident, strategic decisions."
       },
       {
+        "icon": "assets/images/services-pgs/s4/s4-img3.png",
         "title": "Cost-Effective Financial Support",
         "description": "Gain access to experienced finance professionals without the overhead of a full-time local finance department, delivering high-quality support while maintaining operational efficiency."
       }
@@ -191,14 +200,17 @@
     "whyTitle": "Why Syncra for Technology Solutions?",
     "whyCards": [
       {
+        "icon": "assets/images/services-pgs/s5/s5-img1.png",
         "title": "Operationally Driven Technology",
         "description": "Our software solutions are developed with operational efficiency in mind — helping businesses automate repetitive tasks, reduce manual errors, and streamline day-to-day workflows."
       },
       {
+        "icon": "assets/images/services-pgs/s5/s5-img2.png",
         "title": "Real-Time Visibility & Reporting",
         "description": "Through integrated dashboards and reporting systems, businesses gain instant access to operational performance, payment tracking, and financial insights needed for informed decision-making."
       },
       {
+        "icon": "assets/images/services-pgs/s5/s5-img3.png",
         "title": "Flexible & Scalable Systems",
         "description": "Our solutions are designed to adapt to evolving business requirements, providing customizable functionality and secure infrastructure that supports long-term growth."
       }
@@ -284,14 +296,17 @@
     "whyTitle": "Why Syncra for Digital Marketing?",
     "whyCards": [
       {
+        "icon": "assets/images/services-pgs/s6/s6-img1.png",
         "title": "Strategy-Driven Growth",
         "description": "Our marketing specialists develop tailored digital strategies aligned with your business goals — ensuring every campaign, piece of content, and marketing effort contributes to measurable growth."
       },
       {
+        "icon": "assets/images/services-pgs/s6/s6-img2.png",
         "title": "Creative & Consistent Brand Presence",
         "description": "From social media management to content creation, we help businesses maintain a professional, engaging, and consistent presence across all digital channels."
       },
       {
+        "icon": "assets/images/services-pgs/s6/s6-img3.png",
         "title": "Performance Without the Overhead",
         "description": "Access a full spectrum of digital marketing expertise at a fraction of the cost of building an in-house team — without compromising on quality, creativity, or execution."
       }
@@ -318,14 +333,17 @@
     "whyTitle": "Why Syncra for Legal Process Outsourcing?",
     "whyCards": [
       {
+        "icon": "assets/images/services-pgs/s7/s7-img1.png",
         "title": "Cost Reduction",
         "description": "Through strategic outsourcing of documentation and case management tasks, firms significantly reduce administrative overhead — freeing up budget for what matters most."
       },
       {
+        "icon": "assets/images/services-pgs/s7/s7-img2.png",
         "title": "Billable Hour Focus",
         "description": "Legal professionals can channel their efforts entirely into billable hours, entrusting Syncra with the meticulous back-office work that demands precision and consistency."
       },
       {
+        "icon": "assets/images/services-pgs/s7/s7-img3.png",
         "title": "Effortless Case Flow",
         "description": "Our specialists ensure every filing deadline is met, every document is organized, and every follow-up is tracked — keeping your cases moving without disruption."
       }
