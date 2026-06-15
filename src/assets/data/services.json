@@ -43,14 +43,17 @@
     "whyTitle": "Why Syncra for Records Retrieval & Revenue Management?",
     "whyCards": [
       {
+        "icon": "assets/images/services-pgs/s1/s1-img1.png",
         "title": "End-to-End Revenue Cycle Ownership",
         "description": "From attorney request intake to final payment posting, our specialists manage the complete billing and collection lifecycle — eliminating operational gaps, reducing denials, and maximizing revenue recovery."
       },
       {
+        "icon": "assets/images/services-pgs/s1/s2-img2.png",
         "title": "California Workers' Compensation Expertise",
         "description": "Our team is trained specifically in California Workers' Compensation protocols, ensuring every subpoena, invoice, EOR response, and billing process aligns with the state's complex regulatory requirements."
       },
       {
+        "icon": "assets/images/services-pgs/s1/s3-img3.png",
         "title": "Accuracy That Protects Revenue",
         "description": "Through rigorous verification processes, payer validation, and penalty billing management, we ensure nothing slips through the cracks — helping your organization remain compliant, organized, and financially efficient."
       }
