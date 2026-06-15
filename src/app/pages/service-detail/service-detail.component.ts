@@ -258,6 +258,23 @@ export class ServiceDetailComponent implements OnInit {
       next: () => {
         this.isSubmitting  = false;
         this.submitSuccess = true;
+
+        // ── GTM Lead Tracking ─────────────────────────────────────────
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        /* Main GA4 Lead Event */
+        (window as any).dataLayer.push({
+          event:     'generate_lead',
+          services:  'tech_software',
+          form_name: 'service_inquiry',
+          page_path: window.location.pathname
+        });
+        /* Service-Specific Lead Event */
+        (window as any).dataLayer.push({
+          event:        'service_lead',
+          service_name: 'tech_software'
+        });
+        // ─────────────────────────────────────────────────────────────
+
         // Optimistically mark slot as booked immediately
         if (!this.bookedSlots.includes(rawSlot)) {
           this.bookedSlots.push(rawSlot);
