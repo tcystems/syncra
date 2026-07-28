@@ -289,8 +289,13 @@ function doPost(e) {
     // Auto-resize columns for readability
     try { sheet.autoResizeColumns(1, HEADERS.length); } catch(e) {}
 
-    // Send notification email
+    // Send notification email (to Syncra team)
     sendNotificationEmail(formName, prettyDate, dayName, times, services, company, email, phone);
+
+    // Send confirmation email (to the customer)
+    if (email) {
+      sendCustomerConfirmationEmail(email, formName, prettyDate, dayName, times, services, company);
+    }
 
     return jsonResponse({ success: true });
 
@@ -381,6 +386,106 @@ function sendNotificationEmail(formName, prettyDate, dayName, times, services, c
       Logger.log('Failed to send email to ' + recipient + ': ' + err.message);
     }
   });
+}
+
+// ── Email confirmation (to customer) ────────────────────────────────────
+
+function sendCustomerConfirmationEmail(toEmail, formName, prettyDate, dayName, times, services, company) {
+  var subject = '✅ Your ' + formName + ' Booking is Confirmed — Syncra';
+
+  // Plain-text fallback
+  var plainBody = [
+    'Your booking is confirmed!',
+    '='.repeat(44),
+    '',
+    'Thank you for booking a ' + formName + ' session with Syncra.',
+    '',
+    'Date:     ' + prettyDate + ' (' + dayName + ')',
+    '',
+    '🇺🇸 Your time:  ' + times.us,
+    '🇱🇰 IST time:   ' + times.ist,
+    '',
+    'Service / Product:  ' + services,
+    (company ? 'Company:            ' + company : ''),
+    '',
+    '='.repeat(44),
+    'If you need to reschedule or have any questions, just reply to this email.',
+    '',
+    '— The Syncra Team'
+  ].filter(function(line) { return line !== ''; }).join('\n');
+
+  // Rich HTML email
+  var htmlBody = '<!DOCTYPE html><html><body style="margin:0;padding:0;background:#f4f4f7;font-family:Arial,Helvetica,sans-serif;">'
+    + '<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:32px 16px;">'
+    + '<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.10);">'
+
+    // Header
+    + '<tr><td style="background:#81007F;padding:28px 36px;">'
+    + '<p style="margin:0;color:#fff;font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;opacity:0.8;">Syncra · Booking Confirmed</p>'
+    + '<h1 style="margin:6px 0 0;color:#fff;font-size:1.5rem;">✅ ' + formName + '</h1>'
+    + '</td></tr>'
+
+    // Intro
+    + '<tr><td style="padding:24px 36px 0;">'
+    + '<p style="margin:0;font-size:0.95rem;color:#333;">Hi' + (company ? ' from ' + company : '') + ', thanks for booking a ' + formName + ' session with us — we look forward to speaking with you.</p>'
+    + '</td></tr>'
+
+    // Date banner
+    + '<tr><td style="padding:20px 36px 0;">'
+    + '<div style="background:#f9f0f9;border-left:4px solid #81007F;border-radius:6px;padding:16px 20px;">'
+    + '<p style="margin:0 0 2px;color:#81007F;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;font-weight:700;">Booking Date</p>'
+    + '<p style="margin:0;font-size:1.15rem;font-weight:700;color:#222;">' + prettyDate + ' &middot; ' + dayName + '</p>'
+    + '</div></td></tr>'
+
+    // Time block
+    + '<tr><td style="padding:20px 36px 0;">'
+    + '<table width="100%" cellpadding="0" cellspacing="0" style="border-radius:8px;overflow:hidden;border:1px solid #e8e8e8;">'
+    + '<tr style="background:#fff8fe;">'
+    + '<td style="padding:14px 18px;font-size:0.82rem;color:#666;border-bottom:1px solid #f0e4f0;">🇺🇸&nbsp; Your time</td>'
+    + '<td style="padding:14px 18px;font-weight:700;color:#333;border-bottom:1px solid #f0e4f0;">' + times.us + '</td>'
+    + '</tr>'
+    + '<tr style="background:#f0fff0;">'
+    + '<td style="padding:14px 18px;font-size:0.82rem;color:#666;">🇱🇰&nbsp; <strong>IST time</strong></td>'
+    + '<td style="padding:14px 18px;font-weight:700;color:#1a7a1a;font-size:1.05rem;">' + times.ist + '</td>'
+    + '</tr>'
+    + '</table></td></tr>'
+
+    // Service
+    + '<tr><td style="padding:24px 36px;">'
+    + '<table width="100%" cellpadding="0" cellspacing="0">'
+    + '<tr><td style="padding:7px 0;color:#888;width:38%;font-size:0.88rem;">Service / Product</td><td style="padding:7px 0;color:#222;font-weight:600;">' + services + '</td></tr>'
+    + '</table></td></tr>'
+
+    // Footer
+    + '<tr><td style="background:#f8f8f8;padding:16px 36px;border-top:1px solid #eee;">'
+    + '<p style="margin:0;color:#aaa;font-size:0.75rem;">Need to reschedule or have a question? Just reply to this email.</p>'
+    + '</td></tr>'
+
+    + '</table></td></tr></table></body></html>';
+
+  try {
+    MailApp.sendEmail({ to: toEmail, subject: subject, body: plainBody, htmlBody: htmlBody });
+  } catch (err) {
+    Logger.log('Failed to send confirmation email to ' + toEmail + ': ' + err.message);
+  }
+}
+
+/**
+ * Manual test helper — run this from the Apps Script editor (not
+ * sendCustomerConfirmationEmail directly, which needs real arguments).
+ * Update testEmail below to your own inbox before running.
+ */
+function testSendCustomerConfirmationEmail() {
+  var testEmail = 'your-test-address@example.com';
+  sendCustomerConfirmationEmail(
+    testEmail,
+    'Syncra Demo',
+    'May 28, 2026',
+    'Thursday',
+    { us: '9:00 AM – 10:00 AM ET (Eastern Time)', ist: '6:30 PM – 7:30 PM IST (Sri Lanka)' },
+    'Syncra Demo',
+    'Test Company'
+  );
 }
 
 // ── Utility ───────────────────────────────────────────────────────────
