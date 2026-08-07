@@ -11,15 +11,23 @@
 //       Execute as: Me
 //       Who has access: Anyone
 //  6. Copy the Web App URL and paste it into booking.service.ts
+//  7. Deploy netlify/functions/send-mail.js (see that file's setup comment),
+//     then update MAIL_RELAY_URL and MAIL_RELAY_SECRET below to match.
 // ═══════════════════════════════════════════════════════════════════
 
 // ── Configuration ────────────────────────────────────────────────────
 // Email addresses that receive booking notifications.
 // Add as many as needed. First one is temporary for testing.
 const NOTIFICATION_EMAILS = [
-  'keheliya.medcubeusa@gmail.com',
+  'info@syncrabiz.com',
   // 'your-official-syncra-email@syncra.com',   // ← Add production email here
 ];
+
+// Mail relay (Netlify Function) — sends via the authorized mail server
+// (mail.thinkcube.lk / info@syncrabiz.com) instead of MailApp, which was
+// landing in customers' spam folders. See netlify/functions/send-mail.js.
+const MAIL_RELAY_URL    = 'https://syncrabiz.com/.netlify/functions/send-mail'; // ← Replace with your live Netlify URL
+const MAIL_RELAY_SECRET = '7ef98fed67acec09ba499e291f6f5f97d34f4d13ebee55f5';                     // ← Must match MAIL_RELAY_SECRET in Netlify
 
 // Sheet tab names — one per form
 const TABS = ['Syncra Demo', 'Claude MD', 'Cyclone RCM', 'Sumxio'];
@@ -380,12 +388,32 @@ function sendNotificationEmail(formName, prettyDate, dayName, times, services, c
     + '</table></td></tr></table></body></html>';
 
   NOTIFICATION_EMAILS.forEach(function(recipient) {
-    try {
-      MailApp.sendEmail({ to: recipient, subject: subject, body: plainBody, htmlBody: htmlBody });
-    } catch (err) {
-      Logger.log('Failed to send email to ' + recipient + ': ' + err.message);
-    }
+    sendViaRelay(recipient, subject, plainBody, htmlBody);
   });
+}
+
+// ── Mail relay helper ──────────────────────────────────────────────────
+/**
+ * Sends an email via the Netlify mail-relay function, which authenticates
+ * to the authorized mail server (mail.thinkcube.lk / info@syncrabiz.com)
+ * over SMTP. Replaces MailApp.sendEmail, which was landing in spam because
+ * it sent from a Google account with no SPF/DKIM alignment to our domain.
+ */
+function sendViaRelay(to, subject, text, html) {
+  try {
+    var response = UrlFetchApp.fetch(MAIL_RELAY_URL, {
+      method: 'post',
+      contentType: 'application/json',
+      headers: { 'X-Relay-Secret': MAIL_RELAY_SECRET },
+      payload: JSON.stringify({ to: to, subject: subject, text: text, html: html }),
+      muteHttpExceptions: true
+    });
+    if (response.getResponseCode() !== 200) {
+      Logger.log('Mail relay failed for ' + to + ': ' + response.getResponseCode() + ' ' + response.getContentText());
+    }
+  } catch (err) {
+    Logger.log('Mail relay error for ' + to + ': ' + err.message);
+  }
 }
 
 // ── Email confirmation (to customer) ────────────────────────────────────
@@ -463,11 +491,7 @@ function sendCustomerConfirmationEmail(toEmail, formName, prettyDate, dayName, t
 
     + '</table></td></tr></table></body></html>';
 
-  try {
-    MailApp.sendEmail({ to: toEmail, subject: subject, body: plainBody, htmlBody: htmlBody });
-  } catch (err) {
-    Logger.log('Failed to send confirmation email to ' + toEmail + ': ' + err.message);
-  }
+  sendViaRelay(toEmail, subject, plainBody, htmlBody);
 }
 
 /**

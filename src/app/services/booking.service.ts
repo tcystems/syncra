@@ -26,7 +26,7 @@ export class BookingService {
    * After deploying (see syncra-bookings-gas.gs setup instructions), copy the
    * Web App URL from Apps Script → Deploy → Manage deployments and paste it here.
    */
-  private readonly GAS_URL = 'https://script.google.com/macros/s/AKfycbzNvLZsm7xA16hKmmasB6Sry216Dvr_sOneI-vQ64WuiZHkDtMA3PXLMQ-znFi6cOeDxg/exec';
+  private readonly GAS_URL = 'https://script.google.com/macros/s/AKfycbxcHw2jUtQStGJEq8QKt17vH81eoCIFnG-InIfpP_tji3BHVCFgbGzrZaqBJgumtF4GTA/exec';
 
   constructor(private http: HttpClient) {}
 
