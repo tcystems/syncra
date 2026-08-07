@@ -17,7 +17,7 @@
 // Email addresses that receive booking notifications.
 // Add as many as needed. First one is temporary for testing.
 const NOTIFICATION_EMAILS = [
-  'keheliya.medcubeusa@gmail.com',
+  'info@syncrabiz.com',
   // 'your-official-syncra-email@syncra.com',   // ← Add production email here
 ];
 
