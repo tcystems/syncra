@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContactComponent } from '../../components/contact/contact.component';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { BookingService } from '../../services/booking.service';
 
 interface CalendarCell {
@@ -93,10 +93,23 @@ export class HomeComponent implements OnInit, AfterViewInit {
   submitSuccess = false;
   submitError   = '';
 
-  constructor(private bookingService: BookingService) {}
+  constructor(
+    private bookingService: BookingService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.buildCalendar();
+
+    // Opens the booking modal when navigated here from the header's
+    // "Book a Demo" button (which can be clicked from any page).
+    this.route.queryParams.subscribe(params => {
+      if (params['openBooking']) {
+        this.openBookingModal();
+        this.router.navigate([], { queryParams: {}, replaceUrl: true });
+      }
+    });
   }
 
   ngAfterViewInit(): void {

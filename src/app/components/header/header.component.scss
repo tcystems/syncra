@@ -109,6 +109,29 @@
     gap: 16px;
   }
 
+  .btn-book-demo {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #81007F;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+
+    &:hover {
+      background-color: rgba(129, 0, 127, 0.15);
+      border-color: #9000b3;
+    }
+  }
+
   .btn-contact {
     display: none;
 
@@ -125,7 +148,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s;
-    
+
     &:hover {
       background-color: #9000b3;
     }
@@ -288,6 +311,27 @@
     .mobile-menu-actions {
       margin-top: auto;
       padding-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .btn-book-demo-mobile {
+        width: 100%;
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid #81007F;
+        border-radius: 20px;
+        padding: 12px;
+        font-size: 1.05rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s;
+
+        &:hover {
+          background-color: rgba(129, 0, 127, 0.15);
+          border-color: #9000b3;
+        }
+      }
 
       .btn-contact-mobile {
         width: 100%;
