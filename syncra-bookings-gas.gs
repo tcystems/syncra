@@ -245,12 +245,7 @@ function getBookedSlotsList(dateStr, requestedTz) {
 
 function doPost(e) {
   try {
-    var p = e.parameter;
-
-    if (p.formType === 'contact') {
-      return handleContactSubmission(p);
-    }
-
+    var p        = e.parameter;
     var formName = p.formName  || 'Syncra Demo';
     var date     = p.date      || '';
     var tzAbbr   = p.timezone  || 'ET';
@@ -315,103 +310,6 @@ function doPost(e) {
   } catch (err) {
     return jsonResponse({ success: false, error: err.message });
   }
-}
-
-// ── Contact form ("Get in Touch") ───────────────────────────────────────
-/**
- * Handles "Get in Touch" contact form submissions: appends the data to a
- * "Contact Data" sheet tab and sends a team-only notification email.
- * No confirmation email is sent to the submitter.
- */
-function handleContactSubmission(p) {
-  try {
-    var name     = p.name     || '';
-    var email    = p.email    || '';
-    var phone    = p.phone    || '';
-    var services = p.services || '';
-    var message  = p.message  || '';
-
-    var ss    = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getSheetByName('Contact Data');
-    if (!sheet) {
-      sheet = ss.insertSheet('Contact Data');
-      sheet.appendRow(['Timestamp', 'Name', 'Email', 'Phone', 'Services', 'Message']);
-      var headerRange = sheet.getRange(1, 1, 1, 6);
-      headerRange
-        .setBackground('#81007F')
-        .setFontColor('#ffffff')
-        .setFontWeight('bold')
-        .setFontSize(10);
-      sheet.setFrozenRows(1);
-    }
-
-    var timestamp = new Date().toISOString();
-    sheet.appendRow([timestamp, name, email, phone, services, message]);
-    try { sheet.autoResizeColumns(1, 6); } catch (e) {}
-
-    sendContactNotificationEmail(name, email, phone, services, message);
-
-    return jsonResponse({ success: true });
-  } catch (err) {
-    return jsonResponse({ success: false, error: err.message });
-  }
-}
-
-function sendContactNotificationEmail(name, email, phone, services, message) {
-  var subject = '📩 New Contact Form Submission — ' + name;
-
-  var plainBody = [
-    'New Contact Form Submission',
-    '='.repeat(44),
-    '',
-    'Name:     ' + name,
-    'Email:    ' + email,
-    'Phone:    ' + (phone || '—'),
-    'Services: ' + (services || '—'),
-    '',
-    'Message:',
-    message,
-    '',
-    '='.repeat(44),
-    'Submitted via the Syncra website "Get in Touch" form.'
-  ].join('\n');
-
-  var htmlBody = '<!DOCTYPE html><html><body style="margin:0;padding:0;background:#f4f4f7;font-family:Arial,Helvetica,sans-serif;">'
-    + '<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:32px 16px;">'
-    + '<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.10);">'
-
-    // Header
-    + '<tr><td style="background:#81007F;padding:28px 36px;">'
-    + '<p style="margin:0;color:#fff;font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;opacity:0.8;">Syncra · Get in Touch</p>'
-    + '<h1 style="margin:6px 0 0;color:#fff;font-size:1.5rem;">📩 New Contact Form Submission</h1>'
-    + '</td></tr>'
-
-    // Details
-    + '<tr><td style="padding:24px 36px;">'
-    + '<table width="100%" cellpadding="0" cellspacing="0">'
-    + '<tr><td style="padding:7px 0;color:#888;width:30%;font-size:0.88rem;">Name</td><td style="padding:7px 0;color:#222;font-weight:600;">' + name + '</td></tr>'
-    + '<tr><td style="padding:7px 0;color:#888;font-size:0.88rem;">Email</td><td style="padding:7px 0;color:#222;"><a href="mailto:' + email + '" style="color:#81007F;">' + email + '</a></td></tr>'
-    + '<tr><td style="padding:7px 0;color:#888;font-size:0.88rem;">Phone</td><td style="padding:7px 0;color:#222;">' + (phone || '&mdash;') + '</td></tr>'
-    + '<tr><td style="padding:7px 0;color:#888;font-size:0.88rem;">Services</td><td style="padding:7px 0;color:#222;">' + (services || '&mdash;') + '</td></tr>'
-    + '</table></td></tr>'
-
-    // Message
-    + '<tr><td style="padding:0 36px 24px;">'
-    + '<div style="background:#f9f0f9;border-left:4px solid #81007F;border-radius:6px;padding:16px 20px;">'
-    + '<p style="margin:0 0 4px;color:#81007F;font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;font-weight:700;">Message</p>'
-    + '<p style="margin:0;color:#222;white-space:pre-wrap;">' + message + '</p>'
-    + '</div></td></tr>'
-
-    // Footer
-    + '<tr><td style="background:#f8f8f8;padding:16px 36px;border-top:1px solid #eee;">'
-    + '<p style="margin:0;color:#aaa;font-size:0.75rem;">Submitted via the Syncra website "Get in Touch" form.</p>'
-    + '</td></tr>'
-
-    + '</table></td></tr></table></body></html>';
-
-  NOTIFICATION_EMAILS.forEach(function(recipient) {
-    sendViaRelay(recipient, subject, plainBody, htmlBody);
-  });
 }
 
 // ── Email notification ────────────────────────────────────────────────

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { BookingService } from '../../services/booking.service';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -21,7 +21,7 @@ export class ContactComponent {
     message: ''
   };
 
-  constructor(private bookingService: BookingService) {}
+  constructor(private contactService: ContactService) {}
 
   serviceOptions = [
     { value: 'emc-billing', label: 'Records Retrieval, Billing & Revenue' },
@@ -121,7 +121,7 @@ export class ContactComponent {
       .filter((label): label is string => !!label)
       .join(', ');
 
-    this.bookingService.submitContact({
+    this.contactService.submitContact({
       name: this.contactForm.name,
       email: this.contactForm.email,
       phone: this.contactForm.phone,
