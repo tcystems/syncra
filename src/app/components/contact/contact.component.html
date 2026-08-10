@@ -9,13 +9,13 @@
     <div class="contact-form-card">
       <form class="contact-form" (submit)="onSubmit($event)">
         <div class="form-group">
-          <input type="text" placeholder="Your Name *" required>
+          <input type="text" placeholder="Your Name *" required name="name" [(ngModel)]="contactForm.name">
         </div>
         <div class="form-group">
-          <input type="email" placeholder="Email Address *" required>
+          <input type="email" placeholder="Email Address *" required name="email" [(ngModel)]="contactForm.email">
         </div>
         <div class="form-group">
-          <input type="tel" placeholder="Phone Number (Optional)">
+          <input type="tel" placeholder="Phone Number (Optional)" name="phone" [(ngModel)]="contactForm.phone">
         </div>
         <div class="form-group custom-select-wrapper">
           <div class="custom-multiselect" [class.open]="servicesDropdownOpen">
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="form-group">
-          <textarea placeholder="Message *" required rows="3"></textarea>
+          <textarea placeholder="Message *" required rows="3" name="message" [(ngModel)]="contactForm.message"></textarea>
         </div>
         <button type="submit" class="btn-submit">Leave Us a Message</button>
       </form>

@@ -1,16 +1,27 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { BookingService } from '../../services/booking.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
   servicesDropdownOpen = false;
   selectedServices: string[] = [];
+
+  contactForm = {
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  };
+
+  constructor(private bookingService: BookingService) {}
 
   serviceOptions = [
     { value: 'emc-billing', label: 'Records Retrieval, Billing & Revenue' },
@@ -104,9 +115,26 @@ export class ContactComponent {
       });
     });
 
+    // Human-readable service labels for the Sheet/notification email
+    const serviceLabels = this.selectedServices
+      .map(v => this.serviceOptions.find(o => o.value === v)?.label)
+      .filter((label): label is string => !!label)
+      .join(', ');
+
+    this.bookingService.submitContact({
+      name: this.contactForm.name,
+      email: this.contactForm.email,
+      phone: this.contactForm.phone,
+      services: serviceLabels,
+      message: this.contactForm.message
+    }).subscribe({
+      error: () => {} // fire-and-forget, same pattern as the booking form
+    });
+
     // Reset the form and show success message
     form.reset();
     this.selectedServices = [];
+    this.contactForm = { name: '', email: '', phone: '', message: '' };
     alert('Thank you for your message! We will get back to you shortly.');
   }
 }

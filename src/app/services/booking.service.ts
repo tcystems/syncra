@@ -18,6 +18,14 @@ export interface BookedSlotsResponse {
   bookedSlots: string[];  // raw labels without timezone, e.g. ['9:00 AM – 10:00 AM']
 }
 
+export interface ContactPayload {
+  name: string;
+  email: string;
+  phone: string;
+  services: string;   // comma-separated service labels
+  message: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class BookingService {
 
@@ -59,6 +67,35 @@ export class BookingService {
         method: 'POST',
         mode: 'no-cors',   // Opaque — avoids CORS preflight; GAS receives and processes it
         body: formData,    // URLSearchParams auto-sets Content-Type: application/x-www-form-urlencoded
+      })
+      .then(() => {
+        observer.next();
+        observer.complete();
+      })
+      .catch(err => {
+        observer.error(err);
+      });
+    });
+  }
+
+  /**
+   * Submits the "Get in Touch" contact form to Google Apps Script.
+   * Same no-cors fire-and-forget pattern as submitBooking. GAS appends the
+   * data to a "Contact Data" sheet tab and sends a team-only notification
+   * email (no confirmation email to the submitter).
+   */
+  submitContact(payload: ContactPayload): Observable<void> {
+    return new Observable(observer => {
+      const formData = new URLSearchParams();
+      formData.set('formType', 'contact');
+      (Object.keys(payload) as (keyof ContactPayload)[]).forEach(key => {
+        formData.set(key, payload[key]);
+      });
+
+      fetch(this.GAS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData,
       })
       .then(() => {
         observer.next();
